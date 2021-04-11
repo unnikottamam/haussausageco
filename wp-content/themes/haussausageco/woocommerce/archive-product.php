@@ -28,25 +28,52 @@ get_header('shop');
  */
 do_action('woocommerce_before_main_content');
 ?>
-<section class="banner banner-full-h">
+<section class="banner text-primary">
    <div class="container">
-      <div class="row">
-         <?php
-         if (apply_filters('woocommerce_show_page_title', true)) { ?>
-         <h1><?php woocommerce_page_title(); ?></h1>
-         <?php }
-         do_action('woocommerce_archive_description');
-         ?>
-         <a href="#shop-now" class="btn btn-primary scroll-down">Shop Now</a>
+      <div class="row banner__row banner-full-h">
+         <div class="col-12 text-center">
+            <?php
+            if (apply_filters('woocommerce_show_page_title', true)) { ?>
+            <h1><?php woocommerce_page_title(); ?></h1>
+            <?php }
+            do_action('woocommerce_archive_description');
+            ?>
+            <a href="#shop-now" class="btn btn-outline-primary scroll-down">Shop Now</a>
+         </div>
       </div>
    </div>
 </section>
-<section id="show-now">
-   <div class="container">
-      <div class="row">
-         <div class="col-12"></div>
+<section id="featured-products" class="carousel slide featureprods" data-ride="carousel">
+   <div class="carousel-inner">
+      <div class="carousel-item active">
+         <img src="images/" alt="featured-product">
+         <div class="container">
+            <div class="row justify-content-end">
+               <div class="col-md-6">
+                  <h3>Featured</h3>
+                  <h2>maple blueberry</h2>
+                  <p>The ultimate breakfast sausage. %100 maple syrup with allspice and marjoram, and of course, lots of
+                     fresh BC blueberries.</p>
+                  <a href="#" class="btn btn-outline-primary">VIEW PRODUCT</a>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
+   <a class="carousel-control-prev" href="#featured-products" role="button" data-slide="prev">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.813 29.313">
+         <path d="M-2724.775,1325.6l-16.407-13.3,16.407-13.2" stroke="#a46432" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" stroke-dasharray="1 4" />
+      </svg>
+      <span class="sr-only">Previous</span>
+   </a>
+   <a class="carousel-control-next" href="#featured-products" role="button" data-slide="next">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.813 29.313">
+         <path d="M-2724.775,1325.6l-16.407-13.3,16.407-13.2" stroke="#a46432" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" stroke-dasharray="1 4" />
+      </svg>
+      <span class="sr-only">Next</span>
+   </a>
 </section>
 <?php
 if (woocommerce_product_loop()) {

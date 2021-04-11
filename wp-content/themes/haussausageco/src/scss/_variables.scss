@@ -1,4 +1,6 @@
 $primary: #cc322b;
+$secondary: #f5e7cd;
+$secondary__24: rgba($secondary, 0.24);
 $white: #fff !default;
 $light: #f3f0e0;
 $black: #000000 !default;
@@ -15,7 +17,7 @@ $h4-font-size: $font-size-base * 1.375 !default;
 $btn-padding-y: 0.9375rem;
 $btn-padding-x: 1.25rem;
 $btn-font-weight: 500;
-$btn-line-height: 1.13;
+$btn-line-height: 1;
 $border-radius: 3rem;
 $btn-border-width: 2px;
 $btn-padding-y-sm: 0.5rem !default;
@@ -35,6 +37,22 @@ $input-focus-box-shadow: none;
 $input-btn-focus-box-shadow: none;
 $input-focus-border-color: $primary;
 $input-height: 2.8rem;
+
+// Carousel
+$carousel-control-color: $primary !default;
+$carousel-control-width: 15% !default;
+$carousel-control-opacity: 1 !default;
+$carousel-control-hover-opacity: 1 !default;
+$carousel-control-transition: all 0.15s ease !default;
+$carousel-indicator-width: 30px !default;
+$carousel-indicator-height: 3px !default;
+$carousel-indicator-hit-area-height: 10px !default;
+$carousel-indicator-spacer: 3px !default;
+$carousel-indicator-active-bg: $white !default;
+$carousel-indicator-transition: all 0.6s ease !default;
+$carousel-caption-width: 100% !default;
+$carousel-caption-color: inherit !default;
+$carousel-control-icon-width: 20px !default;
 
 // Spacers
 $spacer: 1rem;

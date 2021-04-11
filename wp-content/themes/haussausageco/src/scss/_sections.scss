@@ -1,6 +1,20 @@
 .banner {
-  padding: 4rem 0 8.75rem;
   position: relative;
+  &.text {
+    &-primary {
+      background-color: $secondary__24;
+    }
+    &-light {
+      background-color: $primary;
+    }
+  }
+  &__row {
+    padding: 4rem 0 8.75rem;
+    align-items: center;
+  }
+  &-full-h {
+    min-height: calc(100vh - 12.5rem);
+  }
   &:after {
     content: "";
     position: absolute;
@@ -12,9 +26,6 @@
     background-image: url("../images/logo-group.svg");
     background-position: center;
     background-repeat: repeat-x;
-  }
-  &-full-h {
-    min-height: 100vh;
   }
   .btn {
     margin-top: 3rem;

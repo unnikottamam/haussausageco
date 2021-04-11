@@ -45,6 +45,31 @@ $theme-colors: map-remove($theme-colors, "danger");
   object-fit: cover;
 }
 
+@mixin btn-custom-outline-bgs($active-background: $color) {
+  @include hover() {
+    background-color: $active-background;
+  }
+
+  &.disabled,
+  &:disabled {
+    background-color: transparent;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    background-color: $active-background;
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    background-color: $light;
+    @include btn-custom-outline-bgs($value);
+  }
+}
+
+// Modal
 @include media-breakpoint-only(md) {
   .modal-lg,
   .modal-xl {

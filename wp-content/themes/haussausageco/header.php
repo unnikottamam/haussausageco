@@ -30,12 +30,12 @@
          <div class="row header__row align-items-center">
             <div class="col-12">
                <div class="row">
-                  <div class="col-md-12 col-8 text-md-center">
+                  <div class="col-md-12 col-10 text-md-center">
                      <a href="<?php echo home_url(); ?>" class="header__logo">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/logo.svg" alt="logo">
                      </a>
                   </div>
-                  <div class="col-md-12 col-4 text-right text-md-center">
+                  <div class="col-md-12 col-2 text-right text-md-center">
                      <ul class="header__menu">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Events</a></li>

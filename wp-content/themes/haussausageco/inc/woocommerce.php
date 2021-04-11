@@ -141,7 +141,7 @@ if (!function_exists('haussausageco_woocommerce_wrapper_before')) {
   function haussausageco_woocommerce_wrapper_before()
   {
     ?>
-<main id="primary" class="site-main">
+<main class="woo-pages">
    <?php
   }
 }
@@ -267,9 +267,12 @@ if (!function_exists('haussausageco_woocommerce_header_cart')) {
   }
 }
 
+// Remocng the breadumbs from the woocommerce archive header
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+
 // Woocommerce Breadcrumbs change
-add_filter('woocommerce_breadcrumb_defaults', 'cmg_woocommerce_breadcrumbs');
-function cmg_woocommerce_breadcrumbs()
+add_filter('woocommerce_breadcrumb_defaults', 'new_woocommerce_breadcrumbs');
+function new_woocommerce_breadcrumbs()
 {
   return [
     'delimiter' => '',
@@ -314,6 +317,3 @@ function woo_form_field_class($field)
 {
   return preg_replace('#input-text#', 'form-control', $field);
 }
-
-// Remocng the breadumbs from the woocommerce archive header
-remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
