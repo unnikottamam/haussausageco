@@ -1,0 +1,42 @@
+.header {
+  background-color: $white;
+  &__row {
+    padding: 1rem 0;
+    height: 12.5rem;
+  }
+  &__logo {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 auto;
+    img {
+      width: 18.75rem;
+    }
+  }
+  &__menu {
+    margin: 1.375rem 0 0;
+    list-style: none;
+    padding: 0;
+    > li {
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.22;
+      padding-right: 1.5625rem;
+      display: inline-block;
+      vertical-align: top;
+      &:last-child {
+        padding-right: 0;
+      }
+      > a {
+        display: block;
+        &:hoer {
+          color: $primary;
+        }
+      }
+      &.active {
+        > a {
+          color: $primary;
+        }
+      }
+    }
+  }
+}

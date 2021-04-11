@@ -1,33 +1,32 @@
-$primary: #201b51;
-$secondary: #ee315e;
+$primary: #cc322b;
 $white: #fff !default;
-$dark: #222222 !default;
-$black: #000 !default;
+$light: #f3f0e0;
+$black: #000000 !default;
 
 $font-size-base: 1rem !default;
 $font-size-sm: $font-size-base * 0.875 !default;
 $font-family-sans-serif: "Roboto", sans-serif;
 $headings-font-weight: 500 !default;
-$h1-font-size: $font-size-base * 2 !default;
+$h1-font-size: $font-size-base * 2.25 !default;
 $h2-font-size: $font-size-base * 1.8 !default;
 $h3-font-size: $font-size-base * 1.45 !default;
 $h4-font-size: $font-size-base * 1.375 !default;
 
 $btn-padding-y: 0.9375rem;
-$btn-padding-x: 2rem;
+$btn-padding-x: 1.25rem;
 $btn-font-weight: 500;
-$btn-line-height: 1;
+$btn-line-height: 1.13;
+$border-radius: 3rem;
+$btn-border-width: 2px;
 $btn-padding-y-sm: 0.5rem !default;
 $btn-padding-x-sm: 1.125rem !default;
 $btn-border-radius-sm: 0 !default;
-$btn-border-width: 2px;
 $btn-focus-width: 0;
 
 $link-color: inherit;
-$link-hover-color: $secondary;
+$link-hover-color: $primary;
 $link-hover-decoration: none;
 
-$border-radius: 0;
 $input-border-color: rgba(0, 0, 0, 0.15);
 $input-border-radius-sm: 0;
 $input-border-width: 1px;

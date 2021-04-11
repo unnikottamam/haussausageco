@@ -141,8 +141,8 @@ if (!function_exists('haussausageco_woocommerce_wrapper_before')) {
   function haussausageco_woocommerce_wrapper_before()
   {
     ?>
-			<main id="primary" class="site-main">
-		<?php
+<main id="primary" class="site-main">
+   <?php
   }
 }
 add_action(
@@ -161,8 +161,8 @@ if (!function_exists('haussausageco_woocommerce_wrapper_after')) {
   function haussausageco_woocommerce_wrapper_after()
   {
     ?>
-			</main><!-- #main -->
-		<?php
+</main><!-- #main -->
+<?php
   }
 }
 add_action(
@@ -214,13 +214,10 @@ if (!function_exists('haussausageco_woocommerce_cart_link')) {
   function haussausageco_woocommerce_cart_link()
   {
     ?>
-		<a class="cart-contents" href="<?php echo esc_url(
-    wc_get_cart_url()
-  ); ?>" title="<?php esc_attr_e(
-  'View your shopping cart',
-  'haussausageco'
-); ?>">
-			<?php $item_count_text = sprintf(
+<a class="cart-contents" href="<?php echo esc_url(
+  wc_get_cart_url()
+); ?>" title="<?php esc_attr_e('View your shopping cart', 'haussausageco'); ?>">
+   <?php $item_count_text = sprintf(
      /* translators: number of items in the mini cart. */
      _n(
        '%d item',
@@ -230,13 +227,13 @@ if (!function_exists('haussausageco_woocommerce_cart_link')) {
      ),
      WC()->cart->get_cart_contents_count()
    ); ?>
-			<span class="amount"><?php echo wp_kses_data(
+   <span class="amount"><?php echo wp_kses_data(
      WC()->cart->get_cart_subtotal()
    ); ?></span> <span class="count"><?php echo esc_html(
   $item_count_text
 ); ?></span>
-		</a>
-		<?php
+</a>
+<?php
   }
 }
 
@@ -253,20 +250,20 @@ if (!function_exists('haussausageco_woocommerce_header_cart')) {
     } else {
       $class = '';
     } ?>
-		<ul id="site-header-cart" class="site-header-cart">
-			<li class="<?php echo esc_attr($class); ?>">
-				<?php haussausageco_woocommerce_cart_link(); ?>
-			</li>
-			<li>
-				<?php
-    $instance = [
-      'title' => '',
-    ];
+<ul id="site-header-cart" class="site-header-cart">
+   <li class="<?php echo esc_attr($class); ?>">
+      <?php haussausageco_woocommerce_cart_link(); ?>
+   </li>
+   <li>
+      <?php
+      $instance = [
+        'title' => '',
+      ];
 
-    the_widget('WC_Widget_Cart', $instance);?>
-			</li>
-		</ul>
-		<?php
+      the_widget('WC_Widget_Cart', $instance);?>
+   </li>
+</ul>
+<?php
   }
 }
 
@@ -317,3 +314,6 @@ function woo_form_field_class($field)
 {
   return preg_replace('#input-text#', 'form-control', $field);
 }
+
+// Remocng the breadumbs from the woocommerce archive header
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
