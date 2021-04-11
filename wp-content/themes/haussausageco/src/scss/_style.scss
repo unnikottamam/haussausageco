@@ -1,0 +1,24 @@
+button:focus {
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a,
+img,
+button,
+button svg,
+a::before,
+a::after,
+a svg,
+a span,
+a strong {
+  @include transition;
+}
+
+a:focus {
+  outline: none;
+}
