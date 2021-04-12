@@ -24,7 +24,10 @@ get_header('shop');
       <div class="row banner__row banner-full-h">
          <div class="col-12 text-center">
             <?php
-            if (apply_filters('woocommerce_show_page_title', true)) { ?>
+            if (
+              apply_filters('woocommerce_show_page_title', true) &&
+              !is_shop()
+            ) { ?>
             <h1><?php woocommerce_page_title(); ?></h1>
             <?php }
             do_action('woocommerce_archive_description');
