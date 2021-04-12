@@ -6,20 +6,17 @@
   li {
     display: inline-block;
     vertical-align: top;
-    margin: 0 1.5rem 1rem 0;
+    margin: 0 0.45rem 0.9rem 0;
     font-weight: 500;
     font-family: "Hobo Std";
-    &:last-child {
-      margin-right: 0;
-    }
     a {
-      font-size: 1.875rem;
+      font-size: 1.15rem;
       padding: 0.5rem 1.5rem;
-      min-width: 10rem;
       display: block;
       line-height: 1.1;
       border-radius: 3rem;
       border: 2px solid transparent;
+      color: $primary;
       &:hover {
         border-color: $light;
       }
@@ -53,7 +50,8 @@
     margin: 0 0 1.85rem;
   }
   p {
-    margin: 0;
+    margin: 0 auto;
+    max-width: 17rem;
   }
   .btn {
     position: absolute;
@@ -93,10 +91,15 @@
   &__image {
     img {
       display: block;
-      margin: 0 0 2rem;
+      margin: 0 auto 2rem;
       border-radius: 50%;
       border: 1.25rem solid $primary;
     }
+  }
+  &__title {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 0.05rem;
   }
   &__quantity {
     margin: 2rem 0 0;
@@ -270,6 +273,47 @@
         appearance: textfield;
         -webkit-appearance: none;
       }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .productcats {
+    li {
+      margin: 0 0.5rem 0.9375rem 0;
+      a {
+        min-width: 10rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .product {
+    &__image {
+      img {
+        margin: 0 0 2rem;
+      }
+    }
+    &__title {
+      text-align: left;
+      font-size: 2.75rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .productcats {
+    li {
+      margin: 0 0.75rem 1rem;
+      a {
+        font-size: 1.875rem;
+      }
+    }
+  }
+
+  .product {
+    &__title {
+      font-size: 3.65rem;
     }
   }
 }

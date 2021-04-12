@@ -9,11 +9,11 @@
     }
   }
   &__row {
-    padding: 4rem 0 8.75rem;
+    padding: 3rem 0 7.75rem;
     align-items: center;
   }
   &-full-h {
-    min-height: calc(100vh - 12.5rem);
+    min-height: calc(100vh - 5rem);
   }
   &:after {
     content: "";
@@ -34,6 +34,7 @@
 
 .carousel {
   &.featureprods {
+    background-color: $secondary;
     .carousel {
       &-item {
         z-index: 1;
@@ -67,6 +68,8 @@
         padding-top: 3rem;
         padding-bottom: 3rem;
         color: $white;
+        padding-left: 2.75rem;
+        padding-right: 2.75rem;
         h3 {
           color: $primary;
           margin-bottom: 2.75rem;
@@ -82,9 +85,10 @@
   }
   &-control-next,
   &-control-prev {
+    width: 2.75rem;
     svg {
-      width: 3rem;
-      height: 3rem;
+      width: 2.5rem;
+      height: 2.5rem;
       border: 2px solid $primary;
       background-color: $white;
       border-radius: 50%;
@@ -135,12 +139,13 @@
 
 .footer {
   background: $primary;
-  padding: 6.875rem 0;
+  padding: 3.5rem 0;
   position: relative;
   font-size: 1.125rem;
   a {
     &:hover {
       color: $light;
+      opacity: 0.75;
     }
   }
   &__logo {
@@ -150,7 +155,7 @@
     img {
       display: block;
       margin: 0 auto;
-      width: 18.75rem;
+      width: 10rem;
     }
   }
   &__tel {
@@ -170,14 +175,21 @@
 }
 
 @include media-breakpoint-up(md) {
+  .banner {
+    &__row {
+      padding: 4rem 0 8.75rem;
+    }
+    &-full-h {
+      min-height: calc(100vh - 12.5rem);
+    }
+  }
+
   .carousel {
     &.featureprods {
       .carousel {
         &-item {
           &:before {
-            opacity: 1;
-            width: 50%;
-            background-color: $secondary;
+            opacity: 0;
           }
           > img {
             width: 50%;
@@ -186,7 +198,32 @@
         &-content {
           padding-top: 5.625rem;
           padding-bottom: 5.625rem;
+          padding-left: 0;
+          padding-right: 0;
         }
+      }
+    }
+    &-control-next,
+    &-control-prev {
+      width: 4.75rem;
+      svg {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  .footer {
+    padding: 5rem 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .footer {
+    padding: 6.875rem 0;
+    &__logo {
+      img {
+        width: 18.75rem;
       }
     }
   }
