@@ -88,7 +88,7 @@ get_header('shop');
 </section>
 
 <?php do_action('woocommerce_before_main_content'); ?>
-<section class="py-6">
+<section id="shop-now" class="py-6">
    <div class="container">
       <div class="row">
          <div class="col-12">

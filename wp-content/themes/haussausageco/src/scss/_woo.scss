@@ -1,7 +1,7 @@
 .productcats {
   margin: 0;
   list-style: none;
-  padding: 0;
+  padding: 0 0 1rem;
   text-align: center;
   li {
     display: inline-block;
@@ -35,6 +35,18 @@
   > div {
     padding-top: 3.25rem;
   }
+  a {
+    padding-bottom: 5rem;
+    height: 100%;
+    position: relative;
+    display: block;
+    &:hover {
+      color: inherit;
+      img {
+        transform: scale(1.15) rotate(45deg);
+      }
+    }
+  }
   h2 {
     margin: 0 0 1.85rem;
   }
@@ -52,14 +64,15 @@
   &__inn {
     text-align: center;
     height: 100%;
-    padding-bottom: 5rem;
-    position: relative;
   }
   &__img {
     margin: 0 0 2rem;
+    border-radius: 50%;
+    border: 0.85rem solid $primary;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
     img {
-      border-radius: 50%;
-      border: 0.85rem solid $primary;
       display: block;
       margin: 0 auto;
     }
