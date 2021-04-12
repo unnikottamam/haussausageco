@@ -24,12 +24,12 @@ if (!$notices) {
 }
 ?>
 
-<div class="container">
-   <?php foreach ($notices as $notice): ?>
-   <div class="woocommerce-info" <?php echo wc_get_notice_data_attr(
-     $notice
-   ); ?>>
-      <?php echo wc_kses_notice($notice['notice']); ?>
-   </div>
-   <?php endforeach; ?>
+<?php foreach ($notices as $notice): ?>
+<div class="alert alert-danger alert-dismissible fade show woocommerce-info" role="alert" <?php echo wc_get_notice_data_attr(
+  $notice
+); ?>>
+    <?php echo wc_kses_notice($notice['notice']); ?>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
 </div>
+<?php endforeach;
+?>

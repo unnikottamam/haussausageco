@@ -4,7 +4,11 @@ $grey: #f5e7cd;
 $grey__24: rgba($grey, 0.24);
 $white: #fff !default;
 $light: #f3f0e0;
+$light_24: rgba($light, 0.24);
+$lightdark: #444444;
+$lightdark_50: #e3e3e3;
 $black: #000000 !default;
+$success: #50ca94;
 
 $font-size-base: 1rem !default;
 $font-size-sm: $font-size-base * 0.875 !default;
@@ -56,12 +60,18 @@ $carousel-caption-width: 100% !default;
 $carousel-caption-color: inherit !default;
 $carousel-control-icon-width: 20px !default;
 
+// Tables
+$table-cell-padding: 0.75rem 0 !default;
+$table-border-width: 2px !default;
+$table-border-color: $lightdark_50 !default;
+$table-head-color: $primary !default;
+
 // Spacers
 $spacer: 1rem;
 $spacers: (
   6: (
-    $spacer * 4,
-  ),
+    $spacer * 4
+  )
 );
 
 // Container Max Widths
@@ -69,5 +79,5 @@ $container-max-sizes: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1140px,
+  xl: 1140px
 ) !default;
