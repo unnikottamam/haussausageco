@@ -7,6 +7,8 @@
     display: inline-block;
     vertical-align: top;
     margin: 0 1.5rem 1rem 0;
+    font-weight: 500;
+    font-family: "Hobo Std";
     &:last-child {
       margin-right: 0;
     }
@@ -98,11 +100,21 @@
   }
   &__quantity {
     margin: 2rem 0 0;
+    label {
+      font-weight: 500;
+      font-family: "Hobo Std";
+      text-align: center;
+      display: block;
+      letter-spacing: 0.075rem;
+      color: $primary;
+    }
     .form-control {
       margin-bottom: 0.85rem;
       text-align: center;
       border: 2px solid $primary;
       background: $light;
+      font-weight: 500;
+      font-family: "Hobo Std";
     }
   }
   &__tab {
@@ -110,6 +122,8 @@
   }
   &__tabtitle {
     margin: 0;
+    font-family: "Hobo Std";
+    font-weight: 500;
     a {
       position: relative;
       display: block;
@@ -132,6 +146,9 @@
         &:after {
           transform: rotate(180deg);
         }
+      }
+      &:hover {
+        color: $lightdark;
       }
     }
   }
@@ -162,8 +179,10 @@
     font-size: 14px;
     color: $primary;
     text-transform: uppercase;
+    font-weight: 500;
+    font-family: "Hobo Std";
     &:hover {
-      opacity: 0.8;
+      color: $lightdark;
     }
   }
   &_item {

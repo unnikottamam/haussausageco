@@ -54,6 +54,7 @@
           top: 0;
           height: 100%;
           width: 100%;
+          -o-object-fit: cover;
           object-fit: cover;
           z-index: -2;
         }
@@ -156,6 +157,8 @@
     display: inline-block;
     vertical-align: top;
     font-size: 1.85rem;
+    font-weight: 500;
+    font-family: "Hobo Std";
   }
   &__brand {
     position: absolute;

@@ -20,8 +20,8 @@ defined('ABSPATH') || exit();
 if ($max_value && $min_value === $max_value) { ?>
 <div class="quantity hidden">
     <input type="hidden" id="<?php echo esc_attr(
-     $input_id
-   ); ?>" class="qty" name="<?php echo esc_attr(
+      $input_id
+    ); ?>" class="qty" name="<?php echo esc_attr(
   $input_name
 ); ?>" value="<?php echo esc_attr($min_value); ?>" />
 </div>
@@ -35,16 +35,22 @@ if ($max_value && $min_value === $max_value) { ?>
     )
     : esc_html__('Quantity', 'woocommerce');
   ?>
-<div class="quantity <?php echo (!is_product()) ? 'cart__quantity' : 'product__quantity'; ?>">
+<div class="quantity <?php echo !is_product()
+  ? 'cart__quantity'
+  : 'product__quantity'; ?>">
     <?php do_action('woocommerce_before_quantity_input_field'); ?>
-    <label class="screen-reader-text sr-only" for="<?php echo esc_attr(
-     $input_id
-   ); ?>"><?php echo esc_attr($label); ?></label>
-    <?php echo (!is_product()) ? '<input type="button" value="-" class="qty_button qtyminus" />' : ''; ?>
+    <label class="screen-reader-text <?php echo !is_product()
+      ? 'sr-only'
+      : ''; ?>" for="<?php echo esc_attr($input_id); ?>"><?php echo esc_attr(
+  $label
+); ?></label>
+    <?php echo !is_product()
+      ? '<input type="button" value="-" class="qty_button qtyminus" />'
+      : ''; ?>
 
     <input type="number" id="<?php echo esc_attr(
-     $input_id
-   ); ?>" class="form-control cart__change <?php echo esc_attr(
+      $input_id
+    ); ?>" class="form-control cart__change <?php echo esc_attr(
   join(' ', (array) $classes)
 ); ?>" step="<?php echo esc_attr($step); ?>" min="<?php echo esc_attr(
   $min_value
@@ -56,13 +62,15 @@ if ($max_value && $min_value === $max_value) { ?>
   'Quantity',
   'Product quantity input tooltip',
   'woocommerce'
-); ?>" <?php echo (is_product()) ? 'placeholder="'.esc_attr_x(
-  'Quantity',
-  'Product quantity input tooltip',
-  'woocommerce'
-).'"' : ''; ?> size="4" inputmode="<?php echo esc_attr($inputmode); ?>" />
+); ?>" <?php echo is_product()
+  ? 'placeholder="' .
+    esc_attr_x('Quantity', 'Product quantity input tooltip', 'woocommerce') .
+    '"'
+  : ''; ?> size="4" inputmode="<?php echo esc_attr($inputmode); ?>" />
 
-    <?php echo (!is_product()) ? '<input type="button" value="+" class="qty_button qtyplus" />' : ''; ?>
+    <?php echo !is_product()
+      ? '<input type="button" value="+" class="qty_button qtyplus" />'
+      : ''; ?>
     <?php do_action('woocommerce_after_quantity_input_field'); ?>
 </div>
 <?php }
