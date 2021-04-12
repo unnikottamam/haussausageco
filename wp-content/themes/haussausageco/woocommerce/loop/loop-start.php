@@ -18,6 +18,6 @@
 if (!defined('ABSPATH')) {
   exit();
 } ?>
-<div class="productloop row woo_columns-<?php echo esc_attr(
+<div class="productloop row justify-content-center woo_columns-<?php echo esc_attr(
   wc_get_loop_prop('columns')
 ); ?>">

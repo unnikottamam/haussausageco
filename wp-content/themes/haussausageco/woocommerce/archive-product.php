@@ -34,60 +34,12 @@ get_header('shop');
       </div>
    </div>
 </section>
-<section id="featured-products" class="carousel slide featureprods text-white" data-ride="carousel">
-   <div class="carousel-inner text-center text-md-right">
-      <div class="carousel-item active">
-         <img src="<?php echo get_template_directory_uri(); ?>/images/featured-thumbnail.jpg" alt="featured-product">
-         <div class="container">
-            <div class="row justify-content-end">
-               <div class="col-md-6">
-                  <div class="carousel-content">
-                     <h3>Featured</h3>
-                     <h2>maple blueberry</h2>
-                     <p>The ultimate breakfast sausage. %100 maple syrup with allspice and marjoram, and of course, lots
-                        of
-                        fresh BC blueberries.</p>
-                     <a href="#" class="btn btn-outline-primary">VIEW PRODUCT</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="carousel-item">
-         <img src="<?php echo get_template_directory_uri(); ?>/images/featured-thumbnail.jpg" alt="featured-product">
-         <div class="container">
-            <div class="row justify-content-end">
-               <div class="col-md-6">
-                  <div class="carousel-content">
-                     <h3>Featured</h3>
-                     <h2>maple blueberry</h2>
-                     <p>The ultimate breakfast sausage. %100 maple syrup with allspice and marjoram, and of course, lots
-                        of
-                        fresh BC blueberries.</p>
-                     <a href="#" class="btn btn-outline-primary">VIEW PRODUCT</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <a class="carousel-control-prev" href="#featured-products" role="button" data-slide="prev">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18.813" height="29.313" viewBox="0 0 18.813 29.313">
-         <path d="M-2724.775,1325.6l-16.407-13.3,16.407-13.2" transform="translate(2742.182 -1297.695)"
-            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="1 4" />
-      </svg>
-      <span class="sr-only">Previous</span>
-   </a>
-   <a class="carousel-control-next" href="#featured-products" role="button" data-slide="next">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18.813" height="29.313" viewBox="0 0 18.813 29.313">
-         <path d="M-2724.775,1325.6l-16.407-13.3,16.407-13.2" transform="translate(-2723.369 1327.008) rotate(180)"
-            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="1 4" />
-      </svg>
-      <span class="sr-only">Next</span>
-   </a>
-</section>
 
-<?php do_action('woocommerce_before_main_content'); ?>
+<?php
+get_template_part('template-parts/featured', 'products');
+
+do_action('woocommerce_before_main_content');
+?>
 <section id="shop-now" class="py-6">
    <div class="container">
       <div class="row">
@@ -95,23 +47,35 @@ get_header('shop');
             <?php wc_get_template_part('loop/loop', 'cats'); ?>
          </div>
          <div class="col-12">
-            <?php if (woocommerce_product_loop()) {
-              do_action('woocommerce_before_shop_loop');
-              woocommerce_product_loop_start();
+            <?php
+            $terms = get_terms('product_cat', [
+              'hide_empty' => false,
+            ]);
 
-              if (wc_get_loop_prop('total')) {
-                while (have_posts()) {
-                  the_post();
-                  do_action('woocommerce_shop_loop');
-                  wc_get_template_part('content', 'product');
-                }
-              }
-
-              woocommerce_product_loop_end();
-              do_action('woocommerce_after_shop_loop');
+            if (!empty($terms) && is_shop()) {
+              echo do_shortcode(
+                '[products category="' . $terms[0]->term_id . '"]'
+              );
             } else {
-              do_action('woocommerce_no_products_found');
-            } ?>
+              if (woocommerce_product_loop()) {
+                do_action('woocommerce_before_shop_loop');
+                woocommerce_product_loop_start();
+
+                if (wc_get_loop_prop('total')) {
+                  while (have_posts()) {
+                    the_post();
+                    do_action('woocommerce_shop_loop');
+                    wc_get_template_part('content', 'product');
+                  }
+                }
+
+                woocommerce_product_loop_end();
+                do_action('woocommerce_after_shop_loop');
+              } else {
+                do_action('woocommerce_no_products_found');
+              }
+            }
+            ?>
          </div>
       </div>
    </div>

@@ -97,3 +97,8 @@ function remove_wp_block_library()
   wp_dequeue_script('fancybox');
 }
 add_action('wp_enqueue_scripts', 'remove_wp_block_library', 11);
+
+// Update Image Size
+update_option('medium_size_w', 590);
+update_option('medium_size_h', 670);
+update_option('medium_crop', 1);

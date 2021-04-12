@@ -48,8 +48,7 @@ if (empty($product) || !$product->is_visible()) {
        * @hooked woocommerce_template_loop_product_title - 10
        */
       do_action('woocommerce_shop_loop_item_title');
-      $product_details = $product->get_data();
-      echo "<p>" . $product_details['short_description'] . "</p>";
+      echo "<p>" . $product->get_short_description() . "</p>";
       echo '<span class="btn btn-outline-primary">View Product</span>';
       /**
        * Hook: woocommerce_after_shop_loop_item.

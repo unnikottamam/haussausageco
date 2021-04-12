@@ -6,10 +6,32 @@
  *
  * @package haussausageco
  */
+
+$terms = get_terms('product_cat', [
+  'hide_empty' => false,
+]);
+
+// Ensure visibility.
+if (empty($terms)) {
+  return;
+}
+$count = 0;
 ?>
 
 <ul class="productcats">
-   <li><a href="#">Pork</a></li>
-   <li><a href="#">Specialities</a></li>
-   <li><a href="#">Chicken</a></li>
+   <?php foreach ($terms as $term) {
+     $count++;
+     if (is_shop() && $count == 1) {
+       echo '<li class="active">';
+     } else {
+       echo get_queried_object()->term_id == $term->term_id
+         ? '<li class="active">'
+         : '<li>';
+     }
+     echo '<a href="' .
+       esc_url(get_term_link($term)) .
+       '">' .
+       $term->name .
+       '</a></li>';
+   } ?>
 </ul>
