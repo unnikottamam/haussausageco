@@ -1,6 +1,7 @@
 $primary: #cc322b;
-$secondary: #f5e7cd;
-$secondary__24: rgba($secondary, 0.24);
+$secondary: #b49768;
+$grey: #f5e7cd;
+$grey__24: rgba($grey, 0.24);
 $white: #fff !default;
 $light: #f3f0e0;
 $black: #000000 !default;
@@ -10,10 +11,11 @@ $font-size-sm: $font-size-base * 0.875 !default;
 $font-family-sans-serif: "Roboto", sans-serif;
 $headings-font-weight: 500 !default;
 $h1-font-size: $font-size-base * 2.25 !default;
-$h2-font-size: $font-size-base * 1.8 !default;
-$h3-font-size: $font-size-base * 1.45 !default;
+$h2-font-size: $font-size-base * 1.875 !default;
+$h3-font-size: $font-size-base * 2.25 !default;
 $h4-font-size: $font-size-base * 1.375 !default;
 
+$btn-font-size: 1.25rem;
 $btn-padding-y: 0.9375rem;
 $btn-padding-x: 1.25rem;
 $btn-font-weight: 500;
@@ -40,7 +42,7 @@ $input-height: 2.8rem;
 
 // Carousel
 $carousel-control-color: $primary !default;
-$carousel-control-width: 15% !default;
+$carousel-control-width: 4.75rem !default;
 $carousel-control-opacity: 1 !default;
 $carousel-control-hover-opacity: 1 !default;
 $carousel-control-transition: all 0.15s ease !default;
@@ -58,7 +60,7 @@ $carousel-control-icon-width: 20px !default;
 $spacer: 1rem;
 $spacers: (
   6: (
-    $spacer * 3.5,
+    $spacer * 4,
   ),
 );
 

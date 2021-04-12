@@ -34,3 +34,23 @@ a:focus {
   white-space: nowrap;
   border: 0;
 }
+
+.btn {
+  text-transform: uppercase;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+@include media-breakpoint-up(md) {
+  .pb-6,
+  .py-6 {
+    padding-bottom: 9 !important;
+  }
+
+  .pt-6,
+  .py-6 {
+    padding-top: 9rem !important;
+  }
+}

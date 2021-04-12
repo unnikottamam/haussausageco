@@ -2,7 +2,7 @@
   position: relative;
   &.text {
     &-primary {
-      background-color: $secondary__24;
+      background-color: $grey__24;
     }
     &-light {
       background-color: $primary;
@@ -29,5 +29,100 @@
   }
   .btn {
     margin-top: 3rem;
+  }
+}
+
+.carousel {
+  &.featureprods {
+    .carousel {
+      &-item {
+        z-index: 1;
+        &:before {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          z-index: -1;
+          background-color: $black;
+          opacity: 0.75;
+        }
+        > img {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          z-index: -2;
+        }
+      }
+      &-content {
+        text-align: center;
+        display: inline-block;
+        vertical-align: top;
+        max-width: 23.75rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        color: $white;
+        h3 {
+          color: $primary;
+          margin-bottom: 2.75rem;
+        }
+        h3 {
+          margin: 0 0 2rem;
+        }
+        .btn {
+          margin-top: 1.15rem;
+        }
+      }
+    }
+  }
+  &-control-next,
+  &-control-prev {
+    svg {
+      width: 3rem;
+      height: 3rem;
+      border: 2px solid $primary;
+      background-color: $white;
+      border-radius: 50%;
+      padding: 0.7rem;
+      path {
+        fill: none;
+        stroke: $primary;
+      }
+    }
+    &:hover {
+      svg {
+        background-color: $primary;
+        path {
+          stroke: $white;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .carousel {
+    &.featureprods {
+      .carousel {
+        &-item {
+          &:before {
+            opacity: 1;
+            width: 50%;
+            background-color: $secondary;
+          }
+          > img {
+            width: 50%;
+          }
+        }
+        &-content {
+          padding-top: 5.625rem;
+          padding-bottom: 5.625rem;
+        }
+      }
+    }
   }
 }
