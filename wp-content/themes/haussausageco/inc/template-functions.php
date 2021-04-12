@@ -98,6 +98,13 @@ function remove_wp_block_library()
 }
 add_action('wp_enqueue_scripts', 'remove_wp_block_library', 11);
 
+// Remove WP scripts to prevent loading
+function wp_deregister_scripts()
+{
+  wp_deregister_script('wp-embed');
+}
+add_action('wp_footer', 'wp_deregister_scripts');
+
 // Update Image Size
 update_option('medium_size_w', 590);
 update_option('medium_size_h', 670);

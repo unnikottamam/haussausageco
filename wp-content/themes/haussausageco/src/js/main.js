@@ -13,6 +13,19 @@ $(document).ready(function () {
     );
   });
 
+  $(".product__tabtitle a").on("click", function (e) {
+    e.preventDefault();
+    if (!$(this).hasClass("active")) {
+      $(".product__tabtitle a, .product__tabcont").removeClass("active");
+      $(this).addClass("active");
+      $(this)
+        .parents(".product__tab")
+        .find(".product__tabcont")
+        .addClass("active");
+    } else {
+      $(".product__tabtitle a, .product__tabcont").removeClass("active");
+    }
+  });
   jQuery(function ($) {
     if (!String.prototype.getDecimals) {
       String.prototype.getDecimals = function () {

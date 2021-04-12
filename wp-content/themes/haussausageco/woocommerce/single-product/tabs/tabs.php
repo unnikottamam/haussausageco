@@ -28,58 +28,57 @@ if (!defined('ABSPATH')) {
  */
 $product_tabs = apply_filters('woocommerce_product_tabs', []);
 
-if (!empty($product_tabs)): ?>
+if (!empty($product_tabs)) {
+  $count = 0; ?>
 
-<div class="woocommerce-tabs wc-tabs-wrapper">
-   <ul class="tabs wc-tabs text-uppercase" role="tablist">
-      <?php
-      if (get_field('nutrition_tab')) { ?>
-      <li class="nutrition_tab" id="tab-title-nutrition" role="tab" aria-controls="tab-nutrition">
-         <a href="#tab-nutrition">Full ingredients + nutrition</a>
-      </li>
-      <?php }
-      foreach ($product_tabs as $key => $product_tab): ?>
-      <li class="<?php echo esc_attr(
-        $key
-      ); ?>_tab" id="tab-title-<?php echo esc_attr(
+<div class="pt-5 pb-6 product__tabs tabs" role="tablist">
+    <?php if (get_field('nutrition_tab')) {
+      $count++; ?>
+    <div class="product__tab">
+        <h2 class="product__tabtitle" id="tab-title-nutrition" role="tab" aria-controls="tab-nutrition">
+            <a class="active" href="#tab-nutrition">Full ingredients + nutrition</a>
+        </h2>
+        <div class="product__tabcont active" id="tab-nutrition" role="tabpanel" aria-labelledby="tab-title-nutrition">
+            <?php the_field('nutrition_tab'); ?>
+        </div>
+    </div>
+    <?php
+    } ?>
+    <?php foreach ($product_tabs as $key => $product_tab) {
+      $count++; ?>
+    <div class="product__tab <?php echo $count == 1 ? 'active' : ''; ?>">
+        <h2 class="product__tabtitle <?php echo esc_attr(
+          $key
+        ); ?>_tab" id="tab-title-<?php echo esc_attr(
   $key
 ); ?>" role="tab" aria-controls="tab-<?php echo esc_attr($key); ?>">
-         <a href="#tab-<?php echo esc_attr($key); ?>">
-            <?php echo wp_kses_post(
-              apply_filters(
-                'woocommerce_product_' . $key . '_tab_title',
-                $product_tab['title'],
-                $key
-              )
-            ); ?>
-         </a>
-      </li>
-      <?php endforeach;
-      ?>
-   </ul>
-   <?php
-   if (get_field('nutrition_tab')) { ?>
-   <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--nutrition panel entry-content wc-tab" id="tab-nutrition"
-      role="tabpanel" aria-labelledby="tab-title-nutrition">
-      <?php the_field('nutrition_tab'); ?>
-   </div>
-   <?php }
-   foreach ($product_tabs as $key => $product_tab): ?>
-   <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr(
-     $key
-   ); ?> panel entry-content wc-tab" id="tab-<?php echo esc_attr(
-   $key
- ); ?>" role="tabpanel" aria-labelledby="tab-title-<?php echo esc_attr(
+            <a class="<?php echo $count == 1
+              ? 'active'
+              : ''; ?>" href="#tab-<?php echo esc_attr($key); ?>">
+                <?php echo wp_kses_post(
+                  apply_filters(
+                    'woocommerce_product_' . $key . '_tab_title',
+                    $product_tab['title'],
+                    $key
+                  )
+                ); ?>
+            </a>
+        </h2>
+        <div class="product__tabcont tab-<?php echo esc_attr(
+          $key
+        ); ?>" id="tab-<?php echo esc_attr(
+  $key
+); ?>" role="tabpanel" aria-labelledby="tab-title-<?php echo esc_attr(
   $key
 ); ?>">
-      <?php if (isset($product_tab['callback'])) {
-        call_user_func($product_tab['callback'], $key, $product_tab);
-      } ?>
-   </div>
-   <?php endforeach;
-   ?>
-
-   <?php do_action('woocommerce_product_after_tabs'); ?>
+            <?php if (isset($product_tab['callback'])) {
+              call_user_func($product_tab['callback'], $key, $product_tab);
+            } ?>
+        </div>
+    </div>
+    <?php
+    } ?>
 </div>
 
-<?php endif;
+<?php do_action('woocommerce_product_after_tabs');
+}

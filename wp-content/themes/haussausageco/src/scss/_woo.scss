@@ -93,7 +93,7 @@
       display: block;
       margin: 0 0 2rem;
       border-radius: 50%;
-      border: 0.85rem solid $primary;
+      border: 1.25rem solid $primary;
     }
   }
   &__quantity {
@@ -103,6 +103,43 @@
       text-align: center;
       border: 2px solid $primary;
       background: $light;
+    }
+  }
+  &__tab {
+    padding-top: 1rem;
+  }
+  &__tabtitle {
+    margin: 0;
+    a {
+      position: relative;
+      display: block;
+      padding-bottom: 1.25rem;
+      padding-right: 2.5rem;
+      margin: 0;
+      border-bottom: 2px solid $lightdark_50;
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0.5rem;
+        width: 2rem;
+        height: 1.25rem;
+        background-image: url("../images/arrow-down.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      &.active {
+        &:after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &__tabcont {
+    display: none;
+    padding: 1.5rem 0 1rem;
+    &.active {
+      display: block;
     }
   }
 }
