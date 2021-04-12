@@ -39,6 +39,16 @@ a:focus {
   text-transform: uppercase;
 }
 
+h1,
+h2,
+h3 {
+  color: $primary;
+}
+.text {
+  &-light {
+    color: $white;
+  }
+}
 h2 {
   text-transform: uppercase;
 }

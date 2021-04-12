@@ -19,12 +19,12 @@
 function haussausageco_woocommerce_setup()
 {
   add_theme_support('woocommerce', [
-    'thumbnail_image_width' => 150,
+    'thumbnail_image_width' => 274,
     'single_image_width' => 300,
     'product_grid' => [
-      'default_rows' => 3,
+      'default_rows' => 12,
       'min_rows' => 1,
-      'default_columns' => 4,
+      'default_columns' => 3,
       'min_columns' => 1,
       'max_columns' => 6,
     ],
@@ -267,8 +267,22 @@ if (!function_exists('haussausageco_woocommerce_header_cart')) {
   }
 }
 
-// Remocng the breadumbs from the woocommerce archive header
+// Remove Woo functions
+remove_action(
+  'woocommerce_after_shop_loop_item',
+  'woocommerce_template_loop_add_to_cart'
+);
+remove_action(
+  'woocommerce_before_shop_loop_item_title',
+  'woocommerce_show_product_loop_sale_flash'
+);
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+remove_action(
+  'woocommerce_before_shop_loop',
+  'woocommerce_catalog_ordering',
+  30
+);
 
 // Woocommerce Breadcrumbs change
 add_filter('woocommerce_breadcrumb_defaults', 'new_woocommerce_breadcrumbs');
@@ -317,3 +331,28 @@ function woo_form_field_class($field)
 {
   return preg_replace('#input-text#', 'form-control', $field);
 }
+
+// Add Wrapper in between images in product loop
+// Add the opening div to the img
+function add_img_wrapper_start()
+{
+  echo '<div class="productloop__img">';
+}
+add_action(
+  'woocommerce_before_shop_loop_item_title',
+  'add_img_wrapper_start',
+  5,
+  2
+);
+
+// Close the div that we just added
+function add_img_wrapper_close()
+{
+  echo '</div>';
+}
+add_action(
+  'woocommerce_before_shop_loop_item_title',
+  'add_img_wrapper_close',
+  12,
+  2
+);

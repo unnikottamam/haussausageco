@@ -34,7 +34,7 @@ get_header('shop');
       </div>
    </div>
 </section>
-<section id="featured-products" class="carousel slide featureprods" data-ride="carousel">
+<section id="featured-products" class="carousel slide featureprods text-white" data-ride="carousel">
    <div class="carousel-inner text-center text-md-right">
       <div class="carousel-item active">
          <img src="<?php echo get_template_directory_uri(); ?>/images/featured-thumbnail.jpg" alt="featured-product">
@@ -91,8 +91,8 @@ get_header('shop');
 <section class="py-6">
    <div class="container">
       <div class="row">
-         <div class="col-12 pb-5">
-            <?php wc_get_template_part('loop', 'cats'); ?>
+         <div class="col-12">
+            <?php wc_get_template_part('loop/loop', 'cats'); ?>
          </div>
          <div class="col-12">
             <?php if (woocommerce_product_loop()) {

@@ -8,7 +8,7 @@
  */
 ?>
 
-<ul>
+<ul class="productcats">
    <li><a href="#">Pork</a></li>
    <li><a href="#">Specialities</a></li>
    <li><a href="#">Chicken</a></li>
