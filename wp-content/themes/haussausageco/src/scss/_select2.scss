@@ -1,0 +1,124 @@
+.select2.select2-container {
+  width: 100% !important;
+
+  .select2-selection {
+    outline: none;
+    @include transition;
+    background: transparent;
+    border: 0;
+    height: auto;
+    margin: 0;
+
+    .select2-selection__rendered {
+      display: block;
+      width: 100%;
+      height: $input-height;
+      padding: $input-padding-y $input-padding-x;
+      font-family: $input-font-family;
+      @include font-size($input-font-size);
+      font-weight: $input-font-weight;
+      line-height: $input-line-height;
+      color: $input-color;
+      background-color: $input-bg;
+      background-clip: padding-box;
+      border: $input-border-width solid $input-border-color;
+      @include border-radius($input-border-radius, 0);
+      @include transition;
+    }
+
+    .select2-selection__arrow {
+      background: transparent;
+      border-left: 1px solid $input-border-color;
+      border-radius: 0 3px 3px 0;
+      height: 100%;
+      width: 2.8rem;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &.select2-container--open,
+  &.select2-container--focus {
+    .select2-selection {
+      .select2-selection__rendered,
+      .select2-selection__arrow {
+        border-color: $primary;
+      }
+    }
+  }
+}
+
+.select2-container {
+  .select2-dropdown {
+    background: $white;
+    border-color: $input-border-color;
+    box-shadow: 0px 3px 8px 2px $input-border-color;
+    .select2-search__field {
+      display: block;
+      width: 100%;
+      height: $input-height;
+      padding: $input-padding-y $input-padding-x;
+      font-family: $input-font-family;
+      @include font-size($input-font-size);
+      font-weight: $input-font-weight;
+      line-height: $input-line-height;
+      color: $input-color;
+      background-color: $input-bg;
+      background-clip: padding-box;
+      border: $input-border-width solid $input-border-color !important;
+      @include border-radius($input-border-radius, 0);
+      @include transition;
+      &::-webkit-input-placeholder {
+        color: $input-placeholder-color;
+        opacity: 1;
+      }
+      &::-moz-placeholder {
+        color: $input-placeholder-color;
+        opacity: 1;
+      }
+      &:-ms-input-placeholder {
+        color: $input-placeholder-color;
+        opacity: 1;
+      }
+      &::-ms-input-placeholder {
+        color: $input-placeholder-color;
+        opacity: 1;
+      }
+      &::placeholder {
+        color: $input-placeholder-color;
+        opacity: 1;
+      }
+      &:disabled,
+      &[readonly] {
+        background-color: $input-disabled-bg;
+        opacity: 1;
+      }
+      &:focus {
+        color: $input-color;
+        background-color: $input-bg;
+        border-color: $primary !important;
+        outline: 0;
+        box-shadow: none;
+      }
+    }
+    .select2-results {
+      padding: 0;
+      ul {
+        background: transparent;
+        border: 0;
+        .select2-results__option--highlighted[aria-selected] {
+          background-color: $primary;
+          color: $white;
+        }
+        .select2-results__option {
+          padding: 0.4rem 0.8rem;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+.big-drop {
+  width: 600px !important;
+}

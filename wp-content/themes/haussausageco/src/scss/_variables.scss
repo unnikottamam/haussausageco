@@ -10,6 +10,7 @@ $lightdark_50: #e3e3e3;
 $black: #000000 !default;
 $black_90: rgba($black, 0.9);
 $black_15: rgba($black, 0.15);
+$black_20: rgba($black, 0.2);
 $success: #50ca94;
 
 $font-size-base: 1rem !default;
@@ -39,7 +40,8 @@ $link-color: inherit;
 $link-hover-color: $primary;
 $link-hover-decoration: none;
 
-$input-border-color: rgba(0, 0, 0, 0.15);
+$input-border-color: $black_15;
+$input-border-radius: 0.15rem;
 $input-border-width: 1px;
 $input-padding-x: 0.9375rem;
 $input-focus-box-shadow: none;
@@ -73,8 +75,8 @@ $table-head-color: $primary !default;
 $spacer: 1rem;
 $spacers: (
   6: (
-    $spacer * 4,
-  ),
+    $spacer * 4
+  )
 );
 
 // Container Max Widths
@@ -82,5 +84,5 @@ $container-max-sizes: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1140px,
+  xl: 1140px
 ) !default;

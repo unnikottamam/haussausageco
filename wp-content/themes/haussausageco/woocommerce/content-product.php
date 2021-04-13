@@ -49,7 +49,7 @@ if (empty($product) || !$product->is_visible()) {
        */
       do_action('woocommerce_shop_loop_item_title');
       echo "<p>" . $product->get_short_description() . "</p>";
-      echo '<span class="btn btn-outline-primary">View Product</span>';
+      echo '<span class="btn btn-sm btn-outline-primary">View Product</span>';
       /**
        * Hook: woocommerce_after_shop_loop_item.
        *

@@ -280,9 +280,9 @@ do_action('woocommerce_before_cart');
                                 </div>
                                 <button type="submit" class="btn btn-sm btn-outline-primary button" name="apply_coupon"
                                     value="<?php esc_attr_e(
-                                  'Apply coupon',
-                                  'woocommerce'
-                                ); ?>">
+                                      'Apply coupon',
+                                      'woocommerce'
+                                    ); ?>">
                                     <?php esc_attr_e(
                                       'Apply coupon',
                                       'woocommerce'
@@ -295,9 +295,9 @@ do_action('woocommerce_before_cart');
                         <div class="col-md-4 text-md-right">
                             <button type="submit" class="btn btn-sm btn-outline-primary button" name="update_cart"
                                 value="<?php esc_attr_e(
-                              'Update cart',
-                              'woocommerce'
-                            ); ?>"><?php esc_html_e(
+                                  'Update cart',
+                                  'woocommerce'
+                                ); ?>"><?php esc_html_e(
   'Update cart',
   'woocommerce'
 ); ?></button>

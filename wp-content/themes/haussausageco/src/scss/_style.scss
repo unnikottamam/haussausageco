@@ -73,6 +73,10 @@ h2 {
 }
 
 .alert {
+  strong {
+    font-weight: 500;
+    font-family: Hobo Std;
+  }
   a {
     border-bottom: 2px solid;
     margin-right: 0.5rem;
@@ -93,6 +97,11 @@ h2 {
       background-repeat: no-repeat;
     }
   }
+}
+
+.form-row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @include media-breakpoint-up(md) {
@@ -119,7 +128,9 @@ h2 {
   }
 
   .btn {
-    font-size: 1.25rem;
+    &:not(.btn-sm) {
+      font-size: 1.25rem;
+    }
   }
 
   .h1,

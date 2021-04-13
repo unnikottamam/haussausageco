@@ -8,6 +8,19 @@
   .cart__actions {
     border-bottom: 2px solid $lightdark_50;
   }
+
+  tfoot {
+    box-shadow: inset 0 0px 0 2px $primary, 0 0px 12px 0px $black_15;
+    tr {
+      th,
+      td {
+        border-color: $black_15;
+      }
+    }
+    th {
+      padding-left: 1rem;
+    }
+  }
 }
 
 @include media-breakpoint-down(sm) {
@@ -15,6 +28,7 @@
     &.cart {
       border: none;
       thead,
+      tfoot,
       tbody,
       th,
       td,
