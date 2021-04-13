@@ -30,6 +30,126 @@
   .btn {
     margin-top: 2.25rem;
   }
+  &__btns {
+    list-style: none;
+    margin: 2.25rem 0 0;
+    padding: 0;
+    li {
+      margin: 0 0.75rem 0.35rem;
+      display: inline-block;
+      vertical-align: top;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      .btn {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.ctalist {
+  list-style: none;
+  margin: 2.25rem 0 0;
+  padding: 0;
+  li {
+    margin: 0 0.75rem 0.35rem;
+    display: inline-block;
+    vertical-align: top;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.contentarea {
+  p {
+    margin-bottom: 1.25rem;
+  }
+  h2 {
+    margin-bottom: 2rem;
+  }
+  &:not(.text-white) {
+    h3 {
+      color: $secondary;
+    }
+  }
+  &.primary {
+    background-color: $primary;
+  }
+  &.light {
+    background-color: $grey__24;
+  }
+  &.white {
+    background-color: $white;
+  }
+}
+
+.contactarea {
+  p {
+    margin-bottom: 1.25rem;
+  }
+  h2 {
+    margin-bottom: 2rem;
+  }
+  .mapbox {
+    padding-bottom: 52%;
+    position: relative;
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  h4 {
+    margin: 2.5rem 0;
+    font-weight: 500;
+    font-family: Hobo Std;
+  }
+  &:not(.text-white) {
+    h4 {
+      color: $primary;
+    }
+    h3 {
+      padding-top: 8rem;
+      position: relative;
+      padding-bottom: 2rem;
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      background-image: url(../images/curve-bg.svg);
+      padding-bottom: 2rem;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 10.875rem;
+        height: 5.875rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(../images/logo-h.svg);
+      }
+    }
+  }
+  &.primary {
+    background-color: $primary;
+  }
+  &.light {
+    background-color: $grey__24;
+  }
+  &.white {
+    background-color: $white;
+  }
 }
 
 .carousel {
@@ -217,6 +337,13 @@
   .footer {
     padding: 5rem 0;
   }
+
+  .contentarea {
+    font-size: 1.15rem;
+    p {
+      margin-bottom: 1.25rem;
+    }
+  }
 }
 
 @include media-breakpoint-up(lg) {
@@ -227,5 +354,9 @@
         width: 18.75rem;
       }
     }
+  }
+
+  .contentarea {
+    font-size: 1.25rem;
   }
 }

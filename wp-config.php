@@ -79,6 +79,7 @@ $table_prefix = 'hs_';
  */
 define( 'WP_DEBUG', false );
 
+define('ALLOW_UNFILTERED_UPLOADS', true);
 define('WP_MEMORY_LIMIT', '512M');
 
 /* That's all, stop editing! Happy publishing. */

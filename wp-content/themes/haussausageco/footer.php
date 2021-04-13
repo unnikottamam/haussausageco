@@ -8,7 +8,7 @@
  *
  * @package haussausageco
  */
-if (!is_page()) { ?>
+if (!is_cart()) { ?>
 
 <section class="instaposts">
    <div class="container-fluid">
