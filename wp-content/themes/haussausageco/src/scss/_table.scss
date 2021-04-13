@@ -1,4 +1,10 @@
 .table {
+  td {
+    strong {
+      font-weight: 500;
+      font-family: "Hobo Std";
+    }
+  }
   &.cart {
     margin-bottom: 2rem;
     &__totals {
@@ -19,6 +25,9 @@
     }
     th {
       padding-left: 1rem;
+      font-weight: 500;
+      font-family: "Hobo Std";
+      color: $primary;
     }
   }
 }

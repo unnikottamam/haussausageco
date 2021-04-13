@@ -132,5 +132,6 @@ if ($show_downloads) {
 do_action('woocommerce_after_order_details', $order);
 
 if ($show_customer_details) {
+  echo '<div class="pt-3"></div>';
   wc_get_template('order/order-details-customer.php', ['order' => $order]);
 }

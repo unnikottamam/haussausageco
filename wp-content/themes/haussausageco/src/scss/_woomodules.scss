@@ -1,8 +1,20 @@
-#wc-stripe-payment-request-wrapper {
-  padding: 0 !important;
+.woocommerce {
+  .form-row {
+    margin-bottom: 0.375rem;
+  }
 }
-#wc-stripe-payment-request-button-separator {
-  display: none !important;
+.payment_methods {
+  .form-row {
+    flex-direction: column;
+  }
+  ul {
+    &.woocommerce_error {
+      color: $danger;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
 
 .order_right__btns {
@@ -27,13 +39,19 @@
   }
 }
 
-.payment_method {
-  border: 1px solid $black_15;
-  box-shadow: 0 2px 6px $black_15;
-  padding: 1.2rem 1.4rem;
-  margin-bottom: 0.8rem;
-  position: relative;
-  @include transition;
+.paymethod {
+  &__item {
+    border: 1px solid $black_15;
+    box-shadow: 0 2px 6px $black_15;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    @include transition;
+    &:hover {
+      border-color: $black_20;
+      box-shadow: 0 2px 6px $black_20;
+    }
+  }
   &__1 {
     font-size: 1.15rem;
     color: $primary;
@@ -46,7 +64,7 @@
     letter-spacing: 0.04rem;
     font-size: 15px;
   }
-  &__lists {
+  &__actions {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -57,10 +75,6 @@
       }
     }
   }
-  &:hover {
-    border-color: $black_20;
-    box-shadow: 0 2px 6px $black_20;
-  }
 }
 
 .payment_gateways {
@@ -68,6 +82,9 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    &.woocommerce_error {
+      color: $danger;
+    }
   }
   .custom-control {
     margin-bottom: 1rem;
@@ -155,11 +172,11 @@
 }
 
 .woocommerce-SavedPaymentMethods-saveNew {
+  margin: 1rem 0 0;
   label {
     position: relative;
     z-index: 1;
     display: block;
-    min-height: 1.5rem;
     padding-left: 1.5rem;
     line-height: normal;
     &:before {
@@ -178,15 +195,14 @@
     &:after {
       content: "";
       background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{svg-color($white)}' xmlns='http://www.w3.org/2000/svg'><path d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z'/></svg>");
-      background-size: 1.5rem;
+      background-size: contain;
       background-repeat: no-repeat;
-      background-position: center;
+      background-position: 50%;
       position: absolute;
-      top: 0.05rem;
-      left: -0.15rem;
-      width: 1.25rem;
-      height: 1.25rem;
-      transform: scale(0.54);
+      top: 0.15rem;
+      left: 0;
+      width: 1rem;
+      height: 1rem;
       opacity: 0;
       color: $white;
     }
@@ -233,6 +249,84 @@
   &.lost_password {
     margin: 0;
   }
+}
+
+.woopages {
+  &__nav {
+    ul {
+      margin: 0 0 1.5rem;
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      a {
+        display: block;
+        border: 1px solid $black_15;
+        margin-bottom: -1px;
+        padding: 0.75rem 1.125rem;
+        line-height: 1.2;
+        &:hover {
+          border-color: $primary;
+        }
+      }
+      &.is-active {
+        a {
+          border-color: $primary;
+          background: $primary;
+          color: $white;
+          &:hover {
+            border-color: $primary;
+          }
+        }
+      }
+    }
+  }
+  &__main {
+    a:not(.btn):not(.orderbtns__btn) {
+      box-shadow: inset 0 -2px $black_15;
+      display: inline-block;
+      vertical-align: top;
+      &:hover {
+        box-shadow: inset 0 -2px $primary;
+      }
+    }
+    .custom-control-label {
+      display: block;
+      > span {
+        display: block;
+      }
+    }
+  }
+  h5 {
+    letter-spacing: 0.05rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: "Hobo Std";
+  }
+}
+
+.cart_totals {
+  .woocommerce {
+    &-shipping {
+      &-destination {
+        max-width: 12rem;
+      }
+    }
+  }
+  .shipping-calculator-button {
+    margin-bottom: 1rem;
+  }
+}
+
+#wc-stripe-payment-request-wrapper {
+  padding: 0 !important;
+}
+#wc-stripe-payment-request-button-separator {
+  display: none !important;
+}
+#wc-stripe-cc-form > br {
+  display: none;
 }
 
 @include media-breakpoint-down(md) {

@@ -25,7 +25,7 @@ do_action('woocommerce_before_shipping_calculator');
 ); ?>" method="post">
 
     <?php printf(
-      '<a href="#" class="shipping-calculator-button">%s</a>',
+      '<a href="#" class="shipping-calculator-button btn btn-small btn-outline-primary">%s</a>',
       esc_html(
         !empty($button_text)
           ? $button_text

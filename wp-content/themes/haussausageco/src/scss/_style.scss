@@ -38,6 +38,10 @@ a:focus {
 .btn {
   text-transform: uppercase;
   letter-spacing: 0.075rem;
+  &-small {
+    padding: 0.35rem 1rem;
+    font-size: 14px !important;
+  }
 }
 
 h2 {
@@ -79,6 +83,7 @@ h3 {
 }
 
 .alert {
+  border-radius: 1.75rem;
   strong {
     font-weight: 500;
     font-family: "Hobo Std";
@@ -105,9 +110,40 @@ h3 {
   }
 }
 
-.form-row {
-  margin-left: 0;
-  margin-right: 0;
+textarea {
+  &.form-control {
+    height: 6rem;
+  }
+}
+.form {
+  &-row {
+    margin-left: 0;
+    margin-right: 0;
+    label {
+      font-size: 1.15rem;
+      margin: 0 0 0.25rem;
+      display: block;
+    }
+    strong {
+      font-weight: 500;
+      font-family: "Hobo Std";
+    }
+    .password-input {
+      width: 100%;
+    }
+  }
+}
+
+.commlist {
+  ul {
+    margin: 0 0 1.25rem;
+    list-style: none;
+    padding: 0;
+    strong {
+      font-weight: 500;
+      font-family: "Hobo Std";
+    }
+  }
 }
 
 @include media-breakpoint-up(md) {
@@ -134,7 +170,7 @@ h3 {
   }
 
   .btn {
-    &:not(.btn-sm) {
+    &:not(.btn-sm):not(.btn-small) {
       font-size: 1.25rem;
     }
   }

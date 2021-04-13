@@ -25,13 +25,13 @@ global $product;
 ); ?>>
     <div class="container">
         <?php
-do_action('woocommerce_before_single_product');
+        do_action('woocommerce_before_single_product');
 
-if (post_password_required()) {
-  echo get_the_password_form();
-  return;
-}
-?>
+        if (post_password_required()) {
+          echo get_the_password_form();
+          return;
+        }
+        ?>
     </div>
     <div class="container">
         <div class="row">
@@ -39,7 +39,12 @@ if (post_password_required()) {
                 <?php the_post_thumbnail('woocommerce_single'); ?>
             </div>
             <div class="col-md-6 product__content">
-                <?php do_action('woocommerce_single_product_summary'); ?>
+                <?php
+                do_action('woocommerce_single_product_summary');
+                echo $product->get_stock_status() == 'outofstock'
+                  ? '<h4 class="text-primary">Out of stock !</h4>'
+                  : '';
+                ?>
             </div>
             <div class="col-12">
                 <?php do_action('woocommerce_after_single_product_summary'); ?>
