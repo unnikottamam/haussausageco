@@ -12,13 +12,114 @@
       width: 10rem;
     }
   }
+  &__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    font-family: "Cooper Lt BT";
+    line-height: 1.22;
+  }
+  &__menutoggle {
+    width: 3rem;
+    height: 3rem;
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.4rem 1.2rem 0 $black_15;
+    z-index: 110;
+    position: absolute;
+    background: $white;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: none;
+    svg {
+      width: 2rem;
+      height: 2rem;
+      fill: $primary;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      &.header__toggle1 {
+        opacity: 1;
+      }
+    }
+    &:hover,
+    &.menuactive {
+      background-color: $primary;
+      svg {
+        fill: $white;
+      }
+    }
+    &.menuactive {
+      position: fixed;
+      top: 15px;
+      transform: translateY(0);
+      svg {
+        opacity: 1;
+        &.header__toggle1 {
+          opacity: 0;
+        }
+      }
+    }
+  }
 }
 
 @include media-breakpoint-down(sm) {
+  body {
+    &.menuactive {
+      overflow: hidden;
+    }
+  }
+
   .header {
     &__menu {
       position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      padding: 2rem;
+      z-index: 99;
+      flex-direction: column;
+      background: $black_90;
+      color: $white;
+      text-transform: uppercase;
       display: none;
+      overflow-y: auto;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      > li {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 0.75rem 0;
+        > a {
+          display: block;
+          color: $white;
+          &:hover {
+            color: $primary;
+          }
+        }
+        &.active {
+          > a {
+            color: $primary;
+          }
+        }
+      }
+    }
+    &.menuactive {
+      .header {
+        &__menu {
+          display: flex;
+        }
+      }
     }
   }
 }
@@ -36,14 +137,7 @@
     }
     &__menu {
       margin: 1.375rem 0 0;
-      list-style: none;
-      padding: 0;
-      font-weight: 700;
       > li {
-        font-size: 1.125rem;
-        font-weight: 700;
-        font-family: "Cooper Lt BT";
-        line-height: 1.22;
         padding-right: 1.5625rem;
         display: inline-block;
         vertical-align: top;

@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $(".header__menutoggle").on("click", function (e) {
     e.preventDefault();
-    $(".header, body").toggleClass("menuactive");
+    $(".header, body, .header__menutoggle").toggleClass("menuactive");
   });
   $(".scroll-down").on("click", function (e) {
     e.preventDefault();

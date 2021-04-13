@@ -8,6 +8,8 @@ $light_24: rgba($light, 0.24);
 $lightdark: #444444;
 $lightdark_50: #e3e3e3;
 $black: #000000 !default;
+$black_90: rgba($black, 0.9);
+$black_15: rgba($black, 0.15);
 $success: #50ca94;
 
 $font-size-base: 1rem !default;
@@ -71,8 +73,8 @@ $table-head-color: $primary !default;
 $spacer: 1rem;
 $spacers: (
   6: (
-    $spacer * 4
-  )
+    $spacer * 4,
+  ),
 );
 
 // Container Max Widths
@@ -80,5 +82,5 @@ $container-max-sizes: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1140px
+  xl: 1140px,
 ) !default;

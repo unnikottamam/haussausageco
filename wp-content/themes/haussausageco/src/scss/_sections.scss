@@ -124,6 +124,7 @@
     padding: 2px 1px;
     a {
       display: block;
+      overflow: hidden;
       &:hover {
         img {
           transform: scale(1.1);

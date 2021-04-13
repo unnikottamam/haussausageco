@@ -6,7 +6,7 @@
   li {
     display: inline-block;
     vertical-align: top;
-    margin: 0 0.45rem 0.9rem 0;
+    margin: 0 0.45rem 0.5rem 0;
     font-weight: 500;
     font-family: "Hobo Std";
     a {
@@ -75,6 +75,7 @@
     img {
       display: block;
       margin: 0 auto;
+      border-radius: 50%;
     }
   }
 }
