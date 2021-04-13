@@ -25,8 +25,8 @@ if (empty($product) || !$product->is_visible()) {
 }
 ?>
 <div <?php wc_product_class('col-sm-6 col-lg-4', $product); ?>>
-   <div class="productloop__inn">
-      <?php
+    <div class="productloop__inn">
+        <?php
       /**
        * Hook: woocommerce_before_shop_loop_item.
        *
@@ -49,7 +49,7 @@ if (empty($product) || !$product->is_visible()) {
        */
       do_action('woocommerce_shop_loop_item_title');
       echo "<p>" . $product->get_short_description() . "</p>";
-      echo '<span class="btn btn-sm btn-outline-primary">View Product</span>';
+      echo '<span class="btn btn-outline-primary">View Product</span>';
       /**
        * Hook: woocommerce_after_shop_loop_item.
        *
@@ -58,5 +58,5 @@ if (empty($product) || !$product->is_visible()) {
        */
       do_action('woocommerce_after_shop_loop_item');
       ?>
-   </div>
+    </div>
 </div>

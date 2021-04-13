@@ -40,6 +40,17 @@ a:focus {
   letter-spacing: 0.075rem;
 }
 
+h2 {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "Hobo Std";
+}
+h3 {
+  &#ship-to-different-address {
+    font-size: 1rem;
+  }
+}
+
 h1,
 h2,
 h3 {
@@ -53,11 +64,6 @@ h3 {
       color: $white;
     }
   }
-}
-h2 {
-  text-transform: uppercase;
-  font-weight: 500;
-  font-family: "Hobo Std";
 }
 
 .table {
@@ -75,7 +81,7 @@ h2 {
 .alert {
   strong {
     font-weight: 500;
-    font-family: Hobo Std;
+    font-family: "Hobo Std";
   }
   a {
     border-bottom: 2px solid;

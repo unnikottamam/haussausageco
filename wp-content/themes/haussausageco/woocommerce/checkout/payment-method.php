@@ -19,10 +19,9 @@ if (!defined('ABSPATH')) {
   exit();
 } ?>
 
-<div class="wc_payment_method payment_method_<?php echo esc_attr(
+<li class="wc_payment_method payment_method_<?php echo esc_attr(
   $gateway->id
 ); ?> custom-control custom-radio">
-
     <input id="payment_method_<?php echo esc_attr(
       $gateway->id
     ); ?>" type="radio" class="input-radio custom-control-input" name="payment_method" value="<?php echo esc_attr(
@@ -42,12 +41,12 @@ if (!defined('ABSPATH')) {
     </label>
 
     <?php if ($gateway->has_fields() || $gateway->get_description()): ?>
-    <div class="payment_box payment_gateways__opts payment_method_<?php echo esc_attr(
+    <div class="payment_box payment_method_<?php echo esc_attr(
       $gateway->id
-    ); ?>" <?php if (
-  !$gateway->chosen
-): ?>style="display:none;" <?php endif; ?>>
+    ); ?> payment_gateways__opts" <?php if (
+   !$gateway->chosen
+ ): ?>style="display:none;" <?php endif; ?>>
         <?php $gateway->payment_fields(); ?>
     </div>
     <?php endif; ?>
-</div>
+</li>

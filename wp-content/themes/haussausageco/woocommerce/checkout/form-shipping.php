@@ -20,8 +20,8 @@ defined('ABSPATH') || exit(); ?>
 <div class="woocommerce-shipping-fields">
     <?php if (true === WC()->cart->needs_shipping_address()): ?>
 
-    <h3 id="ship-to-different-address">
-        <div class="custom-control mb-3 custom-checkbox">
+    <h3 id="ship-to-different-address" class="mt-lg-3">
+        <div class="custom-control custom-checkbox">
             <input id="ship-to-different-address-checkbox"
                 class="custom-control-input woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" <?php checked(
                   apply_filters(

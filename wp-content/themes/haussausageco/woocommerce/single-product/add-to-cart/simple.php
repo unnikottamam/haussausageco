@@ -61,7 +61,7 @@ if ($product->is_in_stock()): ?>
 
     <button type="submit" name="add-to-cart" value="<?php echo esc_attr(
       $product->get_id()
-    ); ?>" class="btn btn-sm btn-block btn-primary single_add_to_cart_button button alt">
+    ); ?>" class="btn btn-block btn-primary single_add_to_cart_button button alt">
         <?php echo esc_html($product->single_add_to_cart_text()); ?>
         -
         <?php echo $product->get_price_html(); ?>

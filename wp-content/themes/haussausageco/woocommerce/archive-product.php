@@ -32,9 +32,9 @@ get_header('shop');
                 <?php }
                 do_action('woocommerce_archive_description');
                 ?>
-                <ul class="banner__btn btn-sms">
+                <ul class="banner__btns">
                     <li>
-                        <a href="#shop-now" class="btn btn-sm btn-outline-primary scroll-down">Shop Now</a>
+                        <a href="#shop-now" class="btn btn-outline-primary scroll-down">Shop Now</a>
                     </li>
                 </ul>
             </div>
@@ -95,4 +95,3 @@ do_action('woocommerce_before_main_content');
  */
 do_action('woocommerce_after_main_content');
 get_footer('shop');
-
