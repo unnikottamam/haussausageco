@@ -170,6 +170,47 @@ textarea {
   }
 }
 
+.socialbtns {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: $black;
+      }
+      &:hover {
+        svg {
+          fill: $primary;
+        }
+      }
+    }
+  }
+  &.light {
+    li {
+      a {
+        svg {
+          fill: $white;
+        }
+        &:hover {
+          svg {
+            fill: $grey__24;
+          }
+        }
+      }
+    }
+  }
+}
+
 @include media-breakpoint-up(md) {
   .pb-6,
   .py-6 {

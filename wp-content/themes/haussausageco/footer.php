@@ -41,6 +41,9 @@ if (!is_cart()) { ?>
                #4 - 515 Dupplin Road Victoria, BC <br>
                <a class="footer__tel" href="tel:+17784334287">778-433-4287</a>
             </p>
+            <?php get_template_part('template-parts/social', 'buttons', [
+              'class' => 'light',
+            ]); ?>
          </div>
       </div>
    </div>
