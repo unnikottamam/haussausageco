@@ -149,3 +149,24 @@ function fix_svg()
 		  </style>';
 }
 add_action('admin_head', 'fix_svg');
+
+/**
+ * Add Menu Item to end of menu
+ */
+add_filter('wp_nav_menu_items', 'prefix_add_menu_item', 10, 2);
+function prefix_add_menu_item($items, $args)
+{
+  global $woocommerce;
+  if ($args->theme_location == 'menu-1') {
+    $active = is_cart() ? "active" : "";
+    $items .=
+      '<li class="menu-item header__cart ' .
+      $active .
+      '"><a href="' .
+      wc_get_cart_url() .
+      '">Cart <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg><span>' .
+      $woocommerce->cart->cart_contents_count .
+      '</span></a></li>';
+  }
+  return $items;
+}
