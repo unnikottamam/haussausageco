@@ -146,6 +146,30 @@ textarea {
   }
 }
 
+.wpcf7-not-valid-tip {
+  text-align: left;
+  color: $primary !important;
+  margin: -0.5rem 0 0.75rem !important;
+}
+.wpcf7 {
+  form {
+    .wpcf7-response-output {
+      border-color: $black_15 !important;
+      border-radius: 1rem;
+    }
+    &.invalid,
+    &.unaccepted {
+      .wpcf7-response-output {
+        border-color: $secondary !important;
+      }
+    }
+  }
+  .ajax-loader {
+    position: absolute !important;
+    bottom: -2rem;
+  }
+}
+
 @include media-breakpoint-up(md) {
   .pb-6,
   .py-6 {

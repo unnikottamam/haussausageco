@@ -115,6 +115,16 @@
     font-weight: 500;
     font-family: "Hobo Std";
   }
+  .btn {
+    margin-top: 1.15rem;
+    min-width: 13rem;
+  }
+  .form-control {
+    margin-bottom: 0.75rem;
+  }
+  label {
+    text-align: left;
+  }
   &:not(.text-white) {
     h4 {
       color: $primary;
