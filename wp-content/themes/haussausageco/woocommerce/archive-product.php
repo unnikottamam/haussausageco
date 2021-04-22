@@ -44,6 +44,7 @@ get_header('shop');
 
 <?php
 get_template_part('template-parts/featured', 'products');
+wp_reset_query();
 
 do_action('woocommerce_before_main_content');
 ?>
@@ -58,7 +59,6 @@ do_action('woocommerce_before_main_content');
                 $terms = get_terms('product_cat', [
                   'hide_empty' => false,
                 ]);
-
                 if (!empty($terms) && is_shop()) {
                   echo do_shortcode(
                     '[products category="' . $terms[0]->term_id . '"]'
