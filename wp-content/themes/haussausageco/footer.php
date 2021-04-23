@@ -30,8 +30,6 @@ get_template_part('template-parts/instagram', 'images'); ?>
     <a href="https://foecreative.com" target="_blank" class="footer__brand">Crafted By FOE</a>
 </footer>
 
-<script src="<?php echo get_template_directory_uri(); ?>/dist/js/app.js"></script>
-
 <?php wp_footer(); ?>
 
 </body>

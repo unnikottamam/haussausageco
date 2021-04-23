@@ -134,10 +134,23 @@ add_action('widgets_init', 'haussausageco_widgets_init');
  */
 function haussausageco_scripts()
 {
-  wp_enqueue_style('haussausageco-style', get_stylesheet_uri(), [], _S_VERSION);
+  wp_enqueue_style(
+    'haussausageco-style',
+    get_template_directory_uri() . '/dist/css/app.min.css',
+    [],
+    _S_VERSION
+  );
   wp_style_add_data('haussausageco-style', 'rtl', 'replace');
+
+  wp_enqueue_script(
+    'haussausageco-scripts',
+    get_template_directory_uri() . '/dist/js/app.js',
+    [],
+    _S_VERSION,
+    true
+  );
 }
-// add_action( 'wp_enqueue_scripts', 'haussausageco_scripts' );
+add_action('wp_enqueue_scripts', 'haussausageco_scripts');
 
 /**
  * Implement the Custom Header feature.
