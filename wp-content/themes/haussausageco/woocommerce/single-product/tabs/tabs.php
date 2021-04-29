@@ -36,7 +36,7 @@ if (!empty($product_tabs)) {
       $count++; ?>
     <div class="product__tab">
         <h2 class="product__tabtitle" id="tab-title-nutrition" role="tab" aria-controls="tab-nutrition">
-            <a class="active" href="#tab-nutrition">Full ingredients + nutrition</a>
+            <a class="active" href="#tab-nutrition">Ingredients</a>
         </h2>
         <div class="product__tabcont active" id="tab-nutrition" role="tabpanel" aria-labelledby="tab-title-nutrition">
             <?php the_field('nutrition_tab'); ?>

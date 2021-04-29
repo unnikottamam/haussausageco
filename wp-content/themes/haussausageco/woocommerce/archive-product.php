@@ -21,7 +21,7 @@ get_header('shop');
 ?>
 <section class="banner text-primary">
     <div class="container">
-        <div class="row banner__row banner-full-h">
+        <div class="row banner__row">
             <div class="col-12 text-center">
                 <?php
                 if (

@@ -29,7 +29,7 @@ do_action('woocommerce_before_shipping_calculator');
       esc_html(
         !empty($button_text)
           ? $button_text
-          : __('Calculate shipping', 'woocommerce')
+          : __('Calculate Delivery', 'woocommerce')
       )
     ); ?>
 
