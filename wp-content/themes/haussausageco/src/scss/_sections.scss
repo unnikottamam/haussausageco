@@ -26,7 +26,7 @@
     background-image: url("../images/banner-icons.svg");
     background-position: center;
     background-repeat: repeat-x;
-    background-size: 40rem;
+    background-size: 36rem;
   }
   .btn {
     margin-top: 2.25rem;
@@ -381,11 +381,5 @@
 
   .contentarea {
     font-size: 1.25rem;
-  }
-
-  .banner {
-    &:after {
-      background-size: 52rem;
-    }
   }
 }
