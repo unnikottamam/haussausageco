@@ -240,6 +240,11 @@ label {
   }
 }
 
+.rounded-image {
+  border-radius: 50%;
+  border: 0.4rem solid $primary;
+}
+
 @include media-breakpoint-up(md) {
   .pb-6,
   .py-6 {

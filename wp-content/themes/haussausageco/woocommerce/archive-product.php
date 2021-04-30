@@ -20,26 +20,21 @@ defined('ABSPATH') || exit();
 get_header('shop');
 ?>
 <section class="banner text-primary">
-    <div class="container">
-        <div class="row banner__row">
-            <div class="col-12 text-center">
-                <?php
+   <div class="container">
+      <div class="row banner__row">
+         <div class="col-12 text-center">
+            <?php
                 if (
                   apply_filters('woocommerce_show_page_title', true) &&
                   !is_shop()
                 ) { ?>
-                <h1><?php woocommerce_page_title(); ?></h1>
-                <?php }
+            <h1><?php woocommerce_page_title(); ?></h1>
+            <?php }
                 do_action('woocommerce_archive_description');
                 ?>
-                <ul class="banner__btns">
-                    <li>
-                        <a href="#shop-now" class="btn btn-outline-primary scroll-down">Shop Now</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+         </div>
+      </div>
+   </div>
 </section>
 
 <?php
@@ -49,13 +44,13 @@ wp_reset_query();
 do_action('woocommerce_before_main_content');
 ?>
 <section id="shop-now" class="py-6">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <?php wc_get_template_part('loop/loop', 'cats'); ?>
-            </div>
-            <div class="col-12">
-                <?php
+   <div class="container">
+      <div class="row">
+         <div class="col-12">
+            <?php wc_get_template_part('loop/loop', 'cats'); ?>
+         </div>
+         <div class="col-12">
+            <?php
                 $terms = get_terms('product_cat', [
                   'hide_empty' => false,
                 ]);
@@ -83,9 +78,9 @@ do_action('woocommerce_before_main_content');
                   }
                 }
                 ?>
-            </div>
-        </div>
-    </div>
+         </div>
+      </div>
+   </div>
 </section>
 <?php
 /**
