@@ -20,7 +20,7 @@ defined('ABSPATH') || exit();
 do_action('woocommerce_before_shipping_calculator');
 ?>
 
-<form class="woocommerce-shipping-calculator" action="<?php echo esc_url(
+<form class="woocommerce-shipping-calculator d-block" action="<?php echo esc_url(
   wc_get_cart_url()
 ); ?>" method="post">
    <p>For Delivery, Enter Address. <br />Shipping only offered in Victoria, BC</p>

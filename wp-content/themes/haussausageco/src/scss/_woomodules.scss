@@ -329,6 +329,48 @@
   display: none;
 }
 
+.pickup-location-field .pickup-location-address,
+.pickup-location-field small {
+  font-size: 1rem !important;
+  margin: 0 !important;
+}
+.woocommerce-shipping-methods input[type="hidden"] + p {
+  display: none;
+}
+input#shipping_method_0_local_pickup12,
+input#shipping_method_0_local_pickup12 + label {
+  display: none;
+}
+input#shipping_method_0_local_pickup_plus + label {
+  display: block;
+}
+input#shipping_method_0_local_pickup_plus,
+input#shipping_method_0_local_pickup_plus + label {
+  margin-top: -1.5rem;
+}
+
+.pickup-location-field .pickup-location-appointment-date + button {
+  margin: 0;
+  right: 0.5rem;
+  position: absolute;
+  top: 0.35rem;
+}
+.pickup-location-calendar > div {
+  display: block;
+  position: relative;
+  margin: 0.25rem 0 0;
+}
+.pickup-location-calendar {
+  padding: 0.75rem 0 0;
+  position: relative;
+}
+.pickup-location-field .pickup-location-appointment-date {
+  height: 2.25rem;
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 0.15rem 1rem;
+}
+
 @include media-breakpoint-down(md) {
   .payment_method {
     &__3 {
