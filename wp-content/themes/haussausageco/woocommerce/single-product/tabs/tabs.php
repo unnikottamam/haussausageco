@@ -46,7 +46,7 @@ if (!empty($product_tabs)) {
     } ?>
     <?php foreach ($product_tabs as $key => $product_tab) {
       $count++; ?>
-    <div class="product__tab <?php echo $count == 1 ? 'active' : ''; ?>">
+    <div class="product__tab d-none <?php echo $count == 1 ? 'active' : ''; ?>">
         <h2 class="product__tabtitle <?php echo esc_attr(
           $key
         ); ?>_tab" id="tab-title-<?php echo esc_attr(
