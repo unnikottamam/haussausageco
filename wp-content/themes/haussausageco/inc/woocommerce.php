@@ -383,3 +383,6 @@ add_action(
   12,
   2
 );
+
+// Additional Local Pick Up fields
+require_once 'additional-fields.php';

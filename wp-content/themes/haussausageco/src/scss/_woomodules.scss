@@ -322,6 +322,43 @@
   }
 }
 
+.pickup {
+  &__date {
+    padding-right: 1rem;
+    max-width: 18rem;
+    position: relative;
+    .form-control {
+      background-color: transparent !important;
+      width: 100%;
+      padding-right: 2.5rem;
+    }
+  }
+  &__choose {
+    position: absolute;
+    right: calc(15px + 0.75rem);
+    z-index: -1;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0.55rem;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.datepicker-dropdown {
+  top: 0;
+  left: 0;
+  padding: 4px;
+  position: absolute;
+  background-color: $white;
+  background-clip: padding-box;
+  border: 1px solid $black_15;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px $black_15;
+}
+
 #wc-stripe-payment-request-wrapper {
   padding: 0 !important;
 }
