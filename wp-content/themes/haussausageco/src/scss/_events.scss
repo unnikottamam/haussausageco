@@ -1,0 +1,140 @@
+.tribe-events .tribe-events-c-ical__link {
+  display: none;
+}
+
+.entry .entry-content .event-tickets .tribe-tickets__tickets-form,
+.event-tickets .tribe-tickets__tickets-form {
+  max-width: 100%;
+}
+
+.tribe-events-cal-links {
+  display: none;
+}
+
+.tribe-events .datepicker .day.active,
+.tribe-events .datepicker .day.active.focused,
+.tribe-events .datepicker .day.active:focus,
+.tribe-events .datepicker .day.active:hover,
+.tribe-events .datepicker .month.active,
+.tribe-events .datepicker .month.active.focused,
+.tribe-events .datepicker .month.active:focus,
+.tribe-events .datepicker .month.active:hover,
+.tribe-events .datepicker .year.active,
+.tribe-events .datepicker .year.active.focused,
+.tribe-events .datepicker .year.active:focus,
+.tribe-events .datepicker .year.active:hover,
+.tribe-common a.tribe-common-c-btn--small,
+.tribe-common button.tribe-common-c-btn--small,
+.tribe-common input[type="button"].tribe-common-c-btn--small,
+.tribe-common input[type="submit"].tribe-common-c-btn--small,
+.tribe-common a.tribe-common-c-btn--small,
+.tribe-common button.tribe-common-c-btn--small,
+.tribe-common input[type="button"].tribe-common-c-btn--small,
+.tribe-common input[type="submit"].tribe-common-c-btn--small,
+.entry
+  .entry-content
+  .event-tickets
+  .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:active,
+.entry
+  .entry-content
+  .event-tickets
+  .tribe-tickets__tickets-buy.tribe-common-c-btn:active,
+.event-tickets
+  .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:active,
+.event-tickets .tribe-tickets__tickets-buy.tribe-common-c-btn:active,
+.entry
+  .entry-content
+  .event-tickets
+  .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:disabled,
+.entry
+  .entry-content
+  .event-tickets
+  .tribe-tickets__tickets-buy.tribe-common-c-btn:disabled,
+.event-tickets
+  .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:disabled,
+.event-tickets .tribe-tickets__tickets-buy.tribe-common-c-btn:disabled,
+.entry
+  .entry-content
+  .event-tickets
+  .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:focus,
+.entry
+  .entry-content
+  .event-tickets
+  .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:hover,
+.entry
+  .entry-content
+  .event-tickets
+  .tribe-tickets__tickets-buy.tribe-common-c-btn:focus,
+.entry
+  .entry-content
+  .event-tickets
+  .tribe-tickets__tickets-buy.tribe-common-c-btn:hover,
+.event-tickets
+  .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:focus,
+.event-tickets
+  .tribe-tickets__attendee__fields__footer_checkout-button.tribe-common-c-btn:hover,
+.event-tickets .tribe-tickets__tickets-buy.tribe-common-c-btn:focus,
+.event-tickets .tribe-tickets__tickets-buy.tribe-common-c-btn:hover,
+.tribe-common .tribe-common-c-btn:active,
+.tribe-common a.tribe-common-c-btn:active,
+.tribe-common .tribe-common-c-btn:focus,
+.tribe-common .tribe-common-c-btn:hover,
+.tribe-common a.tribe-common-c-btn:focus,
+.tribe-common a.tribe-common-c-btn:hover {
+  background: $primary;
+  color: $white;
+}
+
+.tribe-events
+  .tribe-events-calendar-month__day--current
+  .tribe-events-calendar-month__day-date-link:active,
+.tribe-events
+  .tribe-events-calendar-month__day--current
+  .tribe-events-calendar-month__day-date,
+.tribe-events
+  .tribe-events-calendar-month__day--current
+  .tribe-events-calendar-month__day-date-link,
+.tribe-events
+  .tribe-events-calendar-month__day--current
+  .tribe-events-calendar-month__day-date-link:focus,
+.tribe-events
+  .tribe-events-calendar-month__day--current
+  .tribe-events-calendar-month__day-date-link:hover,
+.tribe-events-event-meta a:focus,
+.tribe-events-event-meta a:hover,
+.tribe-events-event-meta a,
+.tribe-events-event-meta a:visited,
+.tribe-common a.tribe-common-c-btn-link:focus,
+.tribe-common a.tribe-common-c-btn-link:hover,
+.tribe-common button.tribe-common-c-btn-link:focus,
+.tribe-common button.tribe-common-c-btn-link:hover,
+.tribe-common input[type="button"].tribe-common-c-btn-link:focus,
+.tribe-common input[type="button"].tribe-common-c-btn-link:hover,
+.tribe-common input[type="submit"].tribe-common-c-btn-link:focus,
+.tribe-common input[type="submit"].tribe-common-c-btn-link:hover {
+  color: $primary;
+}
+
+.tribe-common .tribe-common-cta--thin-alt {
+  border-bottom-color: $primary;
+}
+
+.tribe-common .tribe-common-cta--thin-alt:active,
+.tribe-common .tribe-common-cta--thin-alt:focus,
+.tribe-common .tribe-common-cta--thin-alt:hover {
+  border-bottom: 1px solid $primary;
+  color: $primary;
+}
+
+span.tribe-tickets__attendee-tickets-footer-divider {
+  margin-left: 1.25rem;
+}
+
+.tribe-common a.tribe-common-c-btn--small,
+.tribe-common button.tribe-common-c-btn--small,
+.tribe-common input[type="button"].tribe-common-c-btn--small,
+.tribe-common input[type="submit"].tribe-common-c-btn--small {
+  background-color: $primary !important;
+  color: $white !important;
+  border-radius: 0.35rem;
+}

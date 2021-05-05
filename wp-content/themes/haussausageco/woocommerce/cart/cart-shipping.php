@@ -27,121 +27,132 @@ $show_shipping_calculator = !empty($show_shipping_calculator);
 $calculator_text = '';
 ?>
 <tr class="woocommerce-shipping-totals shipping ">
-   <th><?php echo wp_kses_post($package_name); ?></th>
-   <td data-title="<?php echo esc_attr($package_name); ?>">
-      <?php if ($available_methods): ?>
-      <div id="shipping_method" class="woocommerce-shipping-methods mb-2">
-         <?php foreach ($available_methods as $method): ?>
+    <th><?php echo wp_kses_post($package_name); ?></th>
+    <td data-title="<?php echo esc_attr($package_name); ?>">
+        <?php if ($available_methods): ?>
+        <div id="shipping_method" class="woocommerce-shipping-methods mb-2">
+            <?php foreach ($available_methods as $method): ?>
 
-         <div class="custom-control custom-radio">
-            <?php
-            if (1 < count($available_methods)) {
+            <div class="custom-control custom-radio">
+                <?php
+                if (1 < count($available_methods)) {
+                  printf(
+                    '<input type="radio" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method custom-control-input" %4$s />',
+                    $index,
+                    esc_attr(sanitize_title($method->id)),
+                    esc_attr($method->id),
+                    checked($method->id, $chosen_method, false)
+                  );
+                } else {
+                  printf(
+                    '<input type="radio" checked name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method custom-control-input" />',
+                    $index,
+                    esc_attr(sanitize_title($method->id)),
+                    esc_attr($method->id)
+                  );
+                }
+                $string = wc_cart_totals_shipping_method_label($method);
+                if (strpos($string, 'pickup') !== false) {
+                  $localtext =
+                    "<div class='small text-black-50'>(Thu, Fri: 2:00PM – 5:00PM & <br/>Sat,Sun: 11:00AM – 4:00PM)</div>";
+                } else {
+                  $localtext = "";
+                }
+                printf(
+                  '<label class="custom-control-label" for="shipping_method_%1$s_%2$s"><span>%3$s</span>%4$s</label>',
+                  $index,
+                  esc_attr(sanitize_title($method->id)),
+                  wc_cart_totals_shipping_method_label($method),
+                  $localtext
+                );
+                do_action('woocommerce_after_shipping_rate', $method, $index);
+                ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php if (is_cart()): ?>
+        <p class="woocommerce-shipping-destination d-none">
+            <?php if ($formatted_destination) {
               printf(
-                '<input type="radio" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method custom-control-input" %4$s />',
-                $index,
-                esc_attr(sanitize_title($method->id)),
-                esc_attr($method->id),
-                checked($method->id, $chosen_method, false)
+                esc_html__('Shipping to %s.', 'woocommerce') . ' ',
+                '<strong>' . esc_html($formatted_destination) . '</strong>'
               );
+              $calculator_text = esc_html__('Change address', 'woocommerce');
             } else {
-              printf(
-                '<input type="radio" checked name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method custom-control-input" />',
-                $index,
-                esc_attr(sanitize_title($method->id)),
-                esc_attr($method->id)
+              echo wp_kses_post(
+                apply_filters(
+                  'woocommerce_shipping_estimate_html',
+                  __(
+                    'Shipping options will be updated during checkout.',
+                    'woocommerce'
+                  )
+                )
               );
-            }
-            printf(
-              '<label class="custom-control-label" for="shipping_method_%1$s_%2$s"><span>%3$s</span></label>',
-              $index,
-              esc_attr(sanitize_title($method->id)),
-              wc_cart_totals_shipping_method_label($method)
+            } ?>
+        </p>
+        <?php endif; ?>
+        <?php elseif (!$has_calculated_shipping || !$formatted_destination):
+          if (
+            is_cart() &&
+            'no' === get_option('woocommerce_enable_shipping_calc')
+          ) {
+            echo wp_kses_post(
+              apply_filters(
+                'woocommerce_shipping_not_enabled_on_cart_html',
+                __(
+                  'Shipping costs are calculated during checkout.',
+                  'woocommerce'
+                )
+              )
             );
-            do_action('woocommerce_after_shipping_rate', $method, $index);
-            ?>
-         </div>
-         <?php endforeach; ?>
-      </div>
-      <?php if (is_cart()): ?>
-      <p class="woocommerce-shipping-destination">
-         <?php if ($formatted_destination) {
-           printf(
-             esc_html__('Shipping to %s.', 'woocommerce') . ' ',
-             '<strong>' . esc_html($formatted_destination) . '</strong>'
-           );
-           $calculator_text = esc_html__('Change address', 'woocommerce');
-         } else {
-           echo wp_kses_post(
-             apply_filters(
-               'woocommerce_shipping_estimate_html',
-               __(
-                 'Shipping options will be updated during checkout.',
-                 'woocommerce'
-               )
-             )
-           );
-         } ?>
-      </p>
-      <?php endif; ?>
-      <?php elseif (!$has_calculated_shipping || !$formatted_destination):
-        if (
-          is_cart() &&
-          'no' === get_option('woocommerce_enable_shipping_calc')
-        ) {
+          } else {
+            echo wp_kses_post(
+              apply_filters(
+                'woocommerce_shipping_may_be_available_html',
+                __(
+                  'Enter your address to view shipping options.',
+                  'woocommerce'
+                )
+              )
+            );
+          }
+        elseif (!is_cart()):
           echo wp_kses_post(
             apply_filters(
-              'woocommerce_shipping_not_enabled_on_cart_html',
+              'woocommerce_no_shipping_available_html',
               __(
-                'Shipping costs are calculated during checkout.',
+                'There are no shipping options available. Please ensure that your address has been entered correctly, or contact us if you need any help.',
                 'woocommerce'
               )
             )
           );
-        } else {
+        else:
           echo wp_kses_post(
             apply_filters(
-              'woocommerce_shipping_may_be_available_html',
-              __('Enter your address to view shipping options.', 'woocommerce')
+              'woocommerce_cart_no_shipping_available_html',
+              sprintf(
+                esc_html__(
+                  'No shipping options were found for %s.',
+                  'woocommerce'
+                ) . ' ',
+                '<strong>' . esc_html($formatted_destination) . '</strong>'
+              )
             )
           );
-        }
-      elseif (!is_cart()):
-        echo wp_kses_post(
-          apply_filters(
-            'woocommerce_no_shipping_available_html',
-            __(
-              'There are no shipping options available. Please ensure that your address has been entered correctly, or contact us if you need any help.',
-              'woocommerce'
-            )
-          )
-        );
-      else:
-        echo wp_kses_post(
-          apply_filters(
-            'woocommerce_cart_no_shipping_available_html',
-            sprintf(
-              esc_html__(
-                'No shipping options were found for %s.',
-                'woocommerce'
-              ) . ' ',
-              '<strong>' . esc_html($formatted_destination) . '</strong>'
-            )
-          )
-        );
-        $calculator_text = esc_html__(
-          'Enter a different address',
-          'woocommerce'
-        );
-      endif; ?>
+          $calculator_text = esc_html__(
+            'Enter a different address',
+            'woocommerce'
+          );
+        endif; ?>
 
-      <?php if ($show_package_details): ?>
-      <?php echo '<div class="woocommerce-shipping-contents">' .
-        esc_html($package_details) .
-        '</small></div>'; ?>
-      <?php endif; ?>
+        <?php if ($show_package_details): ?>
+        <?php echo '<div class="woocommerce-shipping-contents">' .
+          esc_html($package_details) .
+          '</small></div>'; ?>
+        <?php endif; ?>
 
-      <?php if ($show_shipping_calculator): ?>
-      <?php woocommerce_shipping_calculator($calculator_text); ?>
-      <?php endif; ?>
-   </td>
+        <?php if ($show_shipping_calculator): ?>
+        <?php woocommerce_shipping_calculator($calculator_text); ?>
+        <?php endif; ?>
+    </td>
 </tr>

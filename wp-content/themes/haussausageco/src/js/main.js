@@ -13,6 +13,29 @@ $(document).ready(function () {
     );
   });
 
+  $(".cart_totals .input-text").addClass("form-control");
+
+  let formEl = $(".woocommerce-shipping-calculator");
+  if (formEl.length) {
+    formEl
+      .submit(function (e) {
+        e.preventDefault();
+      })
+      .validate({
+        rules: {
+          calc_shipping_city: {
+            required: true
+          },
+          calc_shipping_address_1: {
+            required: true
+          },
+          calc_shipping_postcode: {
+            required: true
+          }
+        }
+      });
+  }
+
   $(".product__tabtitle a").on("click", function (e) {
     e.preventDefault();
     if (!$(this).hasClass("active")) {
