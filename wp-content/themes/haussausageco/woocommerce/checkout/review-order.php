@@ -32,7 +32,6 @@ defined('ABSPATH') || exit(); ?>
     <tbody>
         <?php
         do_action('woocommerce_review_order_before_cart_contents');
-
         foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
           $_product = apply_filters(
             'woocommerce_cart_item_product',
@@ -40,7 +39,6 @@ defined('ABSPATH') || exit(); ?>
             $cart_item,
             $cart_item_key
           );
-
           if (
             $_product &&
             $_product->exists() &&
@@ -93,7 +91,6 @@ defined('ABSPATH') || exit(); ?>
         </tr>
         <?php }
         }
-
         do_action('woocommerce_review_order_after_cart_contents');
         ?>
     </tbody>
@@ -126,12 +123,14 @@ defined('ABSPATH') || exit(); ?>
 
         <?php endif; ?>
 
-        <?php foreach (WC()->cart->get_fees() as $fee): ?>
+        <?php foreach (WC()->cart->get_fees() as $fee):
+          if ($fee->amount > 0) { ?>
         <tr class="fee">
             <th><?php echo esc_html($fee->name); ?></th>
             <td><?php wc_cart_totals_fee_html($fee); ?></td>
         </tr>
-        <?php endforeach; ?>
+        <?php }
+        endforeach; ?>
 
         <?php if (
           wc_tax_enabled() &&

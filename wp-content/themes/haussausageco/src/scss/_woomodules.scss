@@ -422,13 +422,13 @@ input#shipping_method_0_local_pickup_plus + label {
   color: #495057;
   background-color: $white;
   background-clip: padding-box;
-  border: 1px solid $black_15;
+  border: 1px solid $black_15 !important;
   border-radius: 0.15rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   &:focus {
     color: #495057;
     background-color: $white;
-    border-color: $primary;
+    border-color: $primary !important;
     outline: 0;
     box-shadow: none;
   }

@@ -68,6 +68,19 @@ if (
         <?php do_action('woocommerce_checkout_before_order_review'); ?>
 
         <div id="order_review" class="woocommerce-checkout-review-order">
+            <?php
+            $cat_in_cart = false;
+            foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+              $cart_item_link = get_permalink($cart_item['product_id']);
+              if (strpos($cart_item_link, 'post_type=tribe_events') !== false) {
+                $cat_in_cart = true;
+                break;
+              }
+            }
+            if ($cat_in_cart) {
+              echo do_shortcode('[order_tip_form]');
+            }
+            ?>
             <?php do_action('woocommerce_checkout_order_review'); ?>
         </div>
 
