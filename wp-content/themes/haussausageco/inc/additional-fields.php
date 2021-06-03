@@ -201,8 +201,8 @@ function carrier_company_checkout_validation()
 add_action(
   'woocommerce_checkout_create_order',
   'save_carrier_company_as_order_meta',
-  30,
-  1
+  20,
+  2
 );
 function save_carrier_company_as_order_meta($order)
 {
@@ -220,6 +220,22 @@ function save_carrier_company_as_order_meta($order)
     );
     WC()->session->__unset($field_id); // remove session variable
   }
+}
+
+add_action( 'woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta' );
+function my_custom_checkout_field_update_order_meta( $order_id ) {
+    if ( ! empty( $_POST['carrier_name'] ) ) {
+        update_post_meta( $order_id, 'Pickup Date', sanitize_text_field( $_POST['carrier_name'] ) );
+    }
+}
+
+/**
+ * Display field value on the order edit page
+ */
+add_action( 'woocommerce_admin_order_data_after_billing_address', 'my_custom_checkout_field_display_admin_order_meta', 10, 1 );
+
+function my_custom_checkout_field_display_admin_order_meta($order){
+    echo '<p><strong>'.__('Pickup Date').':</strong> ' . get_post_meta( $order->id, 'Pickup Date', true ) . '</p>';
 }
 
 // Display custom field in admin order pages
@@ -277,4 +293,11 @@ function display_carrier_company_on_order_item_totals(
     return $new_total_rows;
   }
   return $total_rows;
+}
+
+add_filter('woocommerce_email_order_meta_keys', 'my_custom_order_meta_keys');
+
+function my_custom_order_meta_keys( $keys ) {
+     $keys[] = 'Pickup Date'; // This will look for a custom field called 'Pickup Date' and add it to emails
+     return $keys;
 }
