@@ -68,7 +68,7 @@ function carrier_company_custom_select_field($method, $index)
         'class' => ['form-row-wide ' . $field_id . '-' . $field_type],
         'required' => true,
         'options' => $options,
-        'custom_attributes' => ['readonly' => 'readonly'],
+        'custom_attributes' => ['readonly' => 'readonly', 'required' => 'true'],
       ],
       $value
     );
@@ -103,9 +103,7 @@ function carrier_company_script_js()
   if (is_cart() || (is_checkout() && !is_wc_endpoint_url())):
     // Load settings and convert them in variables
 
-
     extract(carrier_settings());
-
     $js_variable = is_cart() ? 'wc_cart_params' : 'wc_checkout_params';
 
     // jQuery Ajax code
@@ -114,7 +112,6 @@ function carrier_company_script_js()
 jQuery(function($) {
     if (typeof <?php echo $js_variable; ?> === 'undefined')
         return false;
-
     $(document.body).on('change', '#<?php echo $field_id; ?>', function() {
         var value = $(this).val() ? $(this).val() : '';
         if (value) {
@@ -175,23 +172,19 @@ function has_carrier_field()
 // Validate the custom selection field
 add_action(
   'woocommerce_checkout_process',
-  'carrier_company_checkout_validation'
+  'pickupdate_validation'
 );
-function carrier_company_checkout_validation()
+function pickupdate_validation()
 {
   // Load settings and convert them in variables
   extract(carrier_settings());
 
   if (
     has_carrier_field() &&
-    isset($_POST[$field_id]) &&
-    empty($_POST[$field_id])
+    !($_POST['carrier_name'])
   ) {
     wc_add_notice(
-      sprintf(
-        __("%s as it is a required field.", "woocommerce"),
-        '<strong>' . $label_name . '</strong>'
-      ),
+      __("Pick up date is a required field.", "woocommerce"),
       "error"
     );
   }
@@ -206,7 +199,6 @@ add_action(
 );
 function save_carrier_company_as_order_meta($order)
 {
-  // Load settings and convert them in variables
   extract(carrier_settings());
 
   if (
@@ -218,7 +210,7 @@ function save_carrier_company_as_order_meta($order)
       '_' . $field_id,
       $field_options[esc_attr($_POST[$field_id])]
     );
-    WC()->session->__unset($field_id); // remove session variable
+    WC()->session->__unset($field_id);
   }
 }
 
@@ -301,3 +293,14 @@ function my_custom_order_meta_keys( $keys ) {
      $keys[] = 'Pickup Date'; // This will look for a custom field called 'Pickup Date' and add it to emails
      return $keys;
 }
+
+function validate($data,$errors) { 
+  extract(carrier_settings());
+  if (
+    has_carrier_field() &&
+    !($_POST['carrier_name'])
+  ) {
+    $errors->add( 'validation', __( 'Pick up date is a required field.' ));
+  }
+}
+add_action('woocommerce_after_checkout_validation', 'validate',10,2);

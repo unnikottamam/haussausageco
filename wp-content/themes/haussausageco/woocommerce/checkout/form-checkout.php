@@ -37,6 +37,17 @@ if (
 }
 ?>
 
+<style>
+.wc-square-credit-card-hosted-field {
+    margin: 0 0 0.5rem;
+}
+
+.wc-square-credit-card-payment-field {
+    border: 1px solid #ccc;
+    padding: 0 5px;
+    min-height: 30px;
+}
+</style>
 <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(
   wc_get_checkout_url()
 ); ?>" enctype="multipart/form-data">
